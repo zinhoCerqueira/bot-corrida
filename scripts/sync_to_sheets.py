@@ -71,9 +71,12 @@ def parse_markdown_to_dataframe(file_path):
     lines = content.split('\n')
     for line in lines:
         # Detectar Fase (Normalizado para MAIÚSCULAS)
-        if line.startswith('## FASE') or line.startswith('## PROVA') or line.startswith('## Recuperação'):
-            if 'PROVA' in line.upper(): current_fase = 'PROVA'
-            elif 'RECUPERAÇÃO' in line.upper(): current_fase = 'RECUPERAÇÃO'
+        upper_line = line.upper()
+        if '## FASE' in upper_line or '## PROVA' in upper_line or '## RECUPERAÇÃO' in upper_line:
+            if 'PROVA' in upper_line: 
+                current_fase = 'PROVA'
+            elif 'RECUPERAÇÃO' in upper_line: 
+                current_fase = 'RECUPERAÇÃO'
             else:
                 fase_match = re.search(r'## (FASE \d+ — .*?)(?:\n|$)', line)
                 if fase_match:

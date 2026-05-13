@@ -379,6 +379,10 @@
 
 **Meia Maratona · 21,1 km · Objetivo: Sub-2h00 (pace 5:40/km)**
 
+| Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
+|------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
+| 27/12 | Dom | PROVA | 21,1 km | 5:40 | Z3 | MEIA MARATONA — Sub-2h00 | - | - | - |
+
 ### Estratégia de corrida
 
 | Trecho | Km | Pace alvo | Postura |
