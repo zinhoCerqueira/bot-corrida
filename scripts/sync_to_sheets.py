@@ -108,18 +108,23 @@ def update_google_sheets(df):
     body = {'values': values}
     
     # Atualiza a aba "Plano Completo" a partir da célula A3 (onde começam os dados reais)
-    range_name = 'Plano Completo!A3' 
+    # Adicionamos aspas simples ao redor do nome da aba por causa do espaço
+    range_name = "'Plano Completo'!A3" 
     
-    # Faz o update direto (sobrescrevendo o que houver)
-    # Usamos USER_ENTERED para que o Google entenda datas e números
-    service.spreadsheets().values().update(
-        spreadsheetId=SPREADSHEET_ID,
-        range=range_name,
-        valueInputOption='USER_ENTERED',
-        body=body
-    ).execute()
+    print(f"DEBUG: Enviando {len(values)} linhas. Exemplo da primeira linha: {values[0]}")
     
-    print(f"Sincronização de {len(values)} linhas concluída com sucesso!")
+    try:
+        # Faz o update direto (sobrescrevendo o que houver)
+        service.spreadsheets().values().update(
+            spreadsheetId=SPREADSHEET_ID,
+            range=range_name,
+            valueInputOption='USER_ENTERED',
+            body=body
+        ).execute()
+        print(f"Sincronização de {len(values)} linhas concluída com sucesso!")
+    except Exception as api_error:
+        print(f"ERRO NA API DO GOOGLE: {api_error}")
+        raise api_error
 
 if __name__ == '__main__':
     if not SPREADSHEET_ID or not SERVICE_ACCOUNT_ENV:
