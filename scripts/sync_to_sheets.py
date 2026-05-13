@@ -107,23 +107,28 @@ def update_google_sheets(df):
 
     body = {'values': values}
     
-    # Atualiza a aba "Plano Completo" a partir da célula A3 (onde começam os dados reais)
-    # Adicionamos aspas simples ao redor do nome da aba por causa do espaço
+    # Diagnóstico: Listar abas antes de tentar o update
+    spreadsheet = service.spreadsheets().get(spreadsheetId=SPREADSHEET_ID).execute()
+    sheets = [sheet['properties']['title'] for sheet in spreadsheet.get('sheets', [])]
+    print(f"DEBUG: Abas encontradas na planilha: {sheets}")
+
     range_name = "'Plano Completo'!A3" 
-    
-    print(f"DEBUG: Enviando {len(values)} linhas. Exemplo da primeira linha: {values[0]}")
+    if "Plano Completo" not in sheets:
+        print(f"AVISO: Aba 'Plano Completo' não encontrada. Tentando usar a primeira aba: '{sheets[0]}'")
+        range_name = f"'{sheets[0]}'!A3"
+
+    print(f"DEBUG: Enviando {len(values)} linhas. Primeira linha: {values[0]}")
     
     try:
-        # Faz o update direto (sobrescrevendo o que houver)
         service.spreadsheets().values().update(
             spreadsheetId=SPREADSHEET_ID,
             range=range_name,
             valueInputOption='USER_ENTERED',
             body=body
         ).execute()
-        print(f"Sincronização de {len(values)} linhas concluída com sucesso!")
+        print(f"Sincronização concluída com sucesso na aba {range_name}!")
     except Exception as api_error:
-        print(f"ERRO NA API DO GOOGLE: {api_error}")
+        print(f"ERRO CRÍTICO NA API: {api_error}")
         raise api_error
 
 if __name__ == '__main__':
