@@ -110,25 +110,16 @@ def update_google_sheets(df):
     # Atualiza a aba "Plano Completo" a partir da célula A3 (onde começam os dados reais)
     range_name = 'Plano Completo!A3' 
     
-    print(f"Sincronizando {len(values)} treinos no Google Sheets...")
-    
-    # Primeiro, vamos limpar os dados antigos para evitar sobreposição se o plano encolher
-    # (Opcional, mas seguro se você mudar o número de treinos)
-    service.spreadsheets().values().clear(
-        spreadsheetId=SPREADSHEET_ID,
-        range='Plano Completo!A3:M200',
-        body={}
-    ).execute()
-
-    # Faz o update
+    # Faz o update direto (sobrescrevendo o que houver)
+    # Usamos USER_ENTERED para que o Google entenda datas e números
     service.spreadsheets().values().update(
         spreadsheetId=SPREADSHEET_ID,
         range=range_name,
-        valueInputOption='USER_ENTERED', # USER_ENTERED interpreta números e datas corretamente
+        valueInputOption='USER_ENTERED',
         body=body
     ).execute()
     
-    print("Sincronização concluída com sucesso!")
+    print(f"Sincronização de {len(values)} linhas concluída com sucesso!")
 
 if __name__ == '__main__':
     if not SPREADSHEET_ID or not SERVICE_ACCOUNT_ENV:
