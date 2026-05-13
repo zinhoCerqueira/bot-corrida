@@ -86,7 +86,7 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 30/04 | Qui | CL | 6 km | 6:35–6:50 | Z1 | Recuperação pós-tiros | - | - | - |
+| 30/04 | Qui | CL | 6 km | 6:35–6:50 | Z1 | Recuperação pós-tiros | 6:42 | 4 | Treino leve, pernas um pouco cansadas, mas ritmo ok. |
 ---
 
 ## FASE 1 — BASE AERÓBIA
