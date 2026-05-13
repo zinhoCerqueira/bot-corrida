@@ -11,7 +11,7 @@ SPREADSHEET_ID = os.environ.get('SPREADSHEET_ID')
 SERVICE_ACCOUNT_ENV = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-# ─── Mapas de Cores (Hex para RGB do Google) ──────────────────────────────────
+# ─── Mapas de Cores (RGB para o Google Sheets) ────────────────────────────────
 def hex_to_rgb(hex_str):
     hex_str = hex_str.lstrip('#')
     return {
@@ -29,7 +29,7 @@ FASE_COLORS = {
     'Taper':           hex_to_rgb('E8F5E9'),
     'Prova':           hex_to_rgb('FF8A80'),
     'Recuperação':     hex_to_rgb('F5F5F5'),
-    'Base':            hex_to_rgb('DDEEFF') # Fallback
+    'Base':            hex_to_rgb('DDEEFF')
 }
 
 TIPO_COLORS = {
@@ -74,22 +74,35 @@ def parse_markdown_to_dataframe(file_path):
             semana_match = re.search(semana_pattern, line)
             if semana_match: current_semana = int(semana_match.group(1))
 
+        # Parser robusto para a tabela
         if line.count('|') >= 9 and 'Data' not in line and '---' not in line:
             parts = [p.strip() for p in line.split('|')][1:-1]
             if len(parts) >= 10:
+                # Limpeza de caracteres especiais como '~' e 'km'
+                dist_raw = parts[3].replace('km', '').replace('~', '').strip()
+                
                 rows.append([
-                    parts[0], parts[1], f"S{current_semana:02d}", current_fase,
-                    parts[2], parts[3].replace('km', '').strip(), parts[4], 
-                    pace_to_decimal(parts[4]), parts[5], parts[6], parts[7], parts[8], parts[9]
+                    parts[0], # Data
+                    parts[1], # Dia
+                    f"S{current_semana:02d}", # Semana
+                    current_fase, # Fase
+                    parts[2], # Tipo
+                    dist_raw, # Distância
+                    parts[4], # Pace Alvo
+                    pace_to_decimal(parts[4]), # Pace Médio
+                    parts[5], # Zona
+                    parts[6] if parts[6] != '-' else '', # Detalhes (limpo)
+                    parts[7], # Pace Real
+                    parts[8], # Percepção
+                    parts[9] if parts[9] != '-' else ''  # Comentários (limpo)
                 ])
 
     return pd.DataFrame(rows, columns=['Data','Dia','Semana','Fase','Tipo','Distância','PaceAlvo','PaceMédio','Zona','Detalhes','PaceReal','Percepção','Comentários'])
 
 def apply_formatting(service, sheet_id, df):
-    """Aplica cores, bordas e alinhamento via BatchUpdate."""
     requests = []
     
-    # 1. Congelar as 2 primeiras linhas (Título e Cabeçalho)
+    # Congelar topo
     requests.append({
         "updateSheetProperties": {
             "properties": {"sheetId": sheet_id, "gridProperties": {"frozenRowCount": 2}},
@@ -97,47 +110,62 @@ def apply_formatting(service, sheet_id, df):
         }
     })
 
-    # 2. Formatação das Linhas de Dados
     for i, row in df.iterrows():
-        row_idx = i + 2 # Dados começam na linha 3 (index 2)
+        row_idx = i + 2 
         fase = row['Fase']
         tipo = row['Tipo']
         
-        # Cor de fundo da Fase (Linha toda)
+        # 1. Cor da Fase para a linha TODA
         bg_color = FASE_COLORS.get(fase, {"red": 1, "green": 1, "blue": 1})
-        
         requests.append({
             "repeatCell": {
                 "range": {"sheetId": sheet_id, "startRowIndex": row_idx, "endRowIndex": row_idx + 1, "startColumnIndex": 0, "endColumnIndex": 13},
-                "cell": {"userEnteredFormat": {"backgroundColor": bg_color, "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"}},
-                "fields": "userEnteredFormat(backgroundColor,horizontalAlignment,verticalAlignment)"
+                "cell": {
+                    "userEnteredFormat": {
+                        "backgroundColor": bg_color,
+                        "horizontalAlignment": "CENTER",
+                        "verticalAlignment": "MIDDLE",
+                        "borders": {
+                            "top": {"style": "SOLID", "color": {"red": 0.8, "green": 0.8, "blue": 0.8}},
+                            "bottom": {"style": "SOLID", "color": {"red": 0.8, "green": 0.8, "blue": 0.8}},
+                            "left": {"style": "SOLID", "color": {"red": 0.8, "green": 0.8, "blue": 0.8}},
+                            "right": {"style": "SOLID", "color": {"red": 0.8, "green": 0.8, "blue": 0.8}}
+                        }
+                    }
+                },
+                "fields": "userEnteredFormat(backgroundColor,horizontalAlignment,verticalAlignment,borders)"
             }
         })
         
-        # Cor específica para a coluna "Tipo" (Coluna index 4)
+        # 2. Cor específica do Tipo de Treino
         tipo_color = TIPO_COLORS.get(tipo, bg_color)
         requests.append({
-            "updateCells": {
+            "repeatCell": {
                 "range": {"sheetId": sheet_id, "startRowIndex": row_idx, "endRowIndex": row_idx + 1, "startColumnIndex": 4, "endColumnIndex": 5},
-                "rows": [{"values": [{"userEnteredFormat": {
-                    "backgroundColor": tipo_color,
-                    "textFormat": {"bold": True, "foregroundColor": {"red": 1, "green": 1, "blue": 1} if tipo == 'PROVA' else {"red": 0, "green": 0, "blue": 0}}
-                }}]}],
+                "cell": {
+                    "userEnteredFormat": {
+                        "backgroundColor": tipo_color,
+                        "textFormat": {
+                            "bold": True, 
+                            "foregroundColor": {"red": 1, "green": 1, "blue": 1} if tipo == 'PROVA' else {"red": 0, "green": 0, "blue": 0}
+                        }
+                    }
+                },
                 "fields": "userEnteredFormat(backgroundColor,textFormat)"
             }
         })
 
-    # 3. Alinhamento à esquerda para colunas de texto (Detalhes e Comentários)
+    # 3. Alinhamento à esquerda para Detalhes e Comentários (após as cores serem aplicadas)
     requests.append({
         "repeatCell": {
-            "range": {"sheetId": sheet_id, "startRowIndex": 2, "startColumnIndex": 9, "endColumnIndex": 10}, # Detalhes
+            "range": {"sheetId": sheet_id, "startRowIndex": 2, "startColumnIndex": 9, "endColumnIndex": 10},
             "cell": {"userEnteredFormat": {"horizontalAlignment": "LEFT"}},
             "fields": "userEnteredFormat.horizontalAlignment"
         }
     })
     requests.append({
         "repeatCell": {
-            "range": {"sheetId": sheet_id, "startRowIndex": 2, "startColumnIndex": 12, "endColumnIndex": 13}, # Comentários
+            "range": {"sheetId": sheet_id, "startRowIndex": 2, "startColumnIndex": 12, "endColumnIndex": 13},
             "cell": {"userEnteredFormat": {"horizontalAlignment": "LEFT"}},
             "fields": "userEnteredFormat.horizontalAlignment"
         }
@@ -149,24 +177,23 @@ def update_google_sheets(df):
     creds = service_account.Credentials.from_service_account_info(json.loads(SERVICE_ACCOUNT_ENV), scopes=SCOPES)
     service = build('sheets', 'v4', credentials=creds)
 
-    # Obter o sheetId da aba "Plano Completo"
     spreadsheet = service.spreadsheets().get(spreadsheetId=SPREADSHEET_ID).execute()
     sheet_id = next(s['properties']['sheetId'] for s in spreadsheet['sheets'] if s['properties']['title'] == 'Plano Completo')
 
-    # 1. Limpar e Inserir Dados
     values = [df.columns.values.tolist()] + df.values.tolist()
-    values = [[val if (pd.notnull(val) and val != '') else '-' for val in row] for row in values]
+    # Limpeza extra: transformar '-' em vazio para não poluir o visual
+    values = [[(val if (pd.notnull(val) and val != '-') else '') for val in row] for row in values]
     
-    service.spreadsheets().values().clear(spreadsheetId=SPREADSHEET_ID, range="'Plano Completo'!A2:M300").execute()
+    print(f"Limpando e enviando {len(values)} linhas...")
+    service.spreadsheets().values().clear(spreadsheetId=SPREADSHEET_ID, range="'Plano Completo'!A2:M400").execute()
     service.spreadsheets().values().update(
         spreadsheetId=SPREADSHEET_ID, range="'Plano Completo'!A2",
         valueInputOption='USER_ENTERED', body={'values': values}
     ).execute()
 
-    # 2. Aplicar Formatação Visual
-    print("Aplicando formatação visual nativa...")
+    print("Aplicando formatação visual completa...")
     apply_formatting(service, sheet_id, df)
-    print("Sincronização e formatação concluídas!")
+    print("Sucesso!")
 
 if __name__ == '__main__':
     if SPREADSHEET_ID and SERVICE_ACCOUNT_ENV:
