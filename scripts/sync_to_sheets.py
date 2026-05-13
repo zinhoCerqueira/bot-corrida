@@ -20,19 +20,19 @@ def hex_to_rgb(hex_str):
         "blue": int(hex_str[4:6], 16) / 255.0
     }
 
+# Cores solicitadas pelo usuário (Suaves)
 FASE_COLORS = {
-    'Aquecimento':     hex_to_rgb('FFF9C4'),
-    'Base Aeróbia':    hex_to_rgb('DDEEFF'),
-    'Desenvolvimento': hex_to_rgb('EDE7F6'),
-    'Específico':      hex_to_rgb('FFF3E0'),
-    'Pico':            hex_to_rgb('FCE4EC'),
-    'Taper':           hex_to_rgb('E8F5E9'),
-    'Prova':           hex_to_rgb('FFCDD2'),
-    'Recuperação':     hex_to_rgb('F5F5F5'),
-    'Base':            hex_to_rgb('DDEEFF')
+    'BASE AERÓBIA':    hex_to_rgb('DDEEFF'), # Azul claro
+    'DESENVOLVIMENTO': hex_to_rgb('EDE7F6'), # Roxo claro
+    'ESPECÍFICO':      hex_to_rgb('FFF8E1'), # Amarelo (igual recuperação)
+    'PICO':            hex_to_rgb('FCE4EC'), # Vermelho claro
+    'TAPER':           hex_to_rgb('E8F5E9'), # Verde claro
+    'PROVA':           hex_to_rgb('FFCDD2'), # Vermelho/Rosa claro
+    'RECUPERAÇÃO':     hex_to_rgb('F5F5F5'), # Cinza claro
+    'AQUECIMENTO':     hex_to_rgb('FFF9C4'), # Amarelo gema claro
 }
 
-COLOR_RECUPERACAO = hex_to_rgb('FFF8E1') # Amarelo claro para semanas de recuperação
+COLOR_RECUPERACAO = hex_to_rgb('FFF8E1') # Amarelo claro (Semanas ⚡)
 
 TIPO_COLORS = {
     'LR':    hex_to_rgb('BBDEFB'),
@@ -65,20 +65,20 @@ def parse_markdown_to_dataframe(file_path):
         content = f.read()
 
     rows = []
-    current_fase, current_semana = "Base", 0
+    current_fase, current_semana = "BASE AERÓBIA", 0
     is_recovery_week = False
     
     lines = content.split('\n')
     for line in lines:
-        # Detectar Fase
+        # Detectar Fase (Normalizado para MAIÚSCULAS)
         if line.startswith('## FASE') or line.startswith('## PROVA') or line.startswith('## Recuperação'):
-            if 'PROVA' in line: current_fase = 'Prova'
-            elif 'Recuperação' in line: current_fase = 'Recuperação'
+            if 'PROVA' in line.upper(): current_fase = 'PROVA'
+            elif 'RECUPERAÇÃO' in line.upper(): current_fase = 'RECUPERAÇÃO'
             else:
                 fase_match = re.search(r'## (FASE \d+ — .*?)(?:\n|$)', line)
                 if fase_match:
                     full = fase_match.group(1)
-                    current_fase = full.split(' — ')[1].strip() if ' — ' in full else full
+                    current_fase = full.split(' — ')[1].strip().upper() if ' — ' in full else full.upper()
         
         # Detectar Semana e se é de Recuperação
         if line.startswith('### Semana'):
@@ -117,7 +117,8 @@ def apply_formatting(service, sheet_id, df):
         is_rec = row['IsRecovery']
         
         # 1. Cor da Fase ou Recuperação para a linha TODA
-        bg_color = COLOR_RECUPERACAO if is_rec else FASE_COLORS.get(fase, {"red": 1, "green": 1, "blue": 1})
+        # Se for semana de recuperação, prioriza o amarelo
+        bg_color = COLOR_RECUPERACAO if is_rec else FASE_COLORS.get(fase.upper(), {"red": 1, "green": 1, "blue": 1})
         
         requests.append({
             "repeatCell": {
@@ -178,7 +179,6 @@ def update_google_sheets(df):
     spreadsheet = service.spreadsheets().get(spreadsheetId=SPREADSHEET_ID).execute()
     sheet_id = next(s['properties']['sheetId'] for s in spreadsheet['sheets'] if s['properties']['title'] == 'Plano Completo')
 
-    # Escrita (removemos a coluna IsRecovery antes de enviar os dados)
     df_to_send = df.drop(columns=['IsRecovery'])
     values = [df_to_send.columns.values.tolist()] + df_to_send.values.tolist()
     values = [[(val if pd.notnull(val) else '') for val in row] for row in values]
