@@ -11,7 +11,7 @@ SPREADSHEET_ID = os.environ.get('SPREADSHEET_ID')
 SERVICE_ACCOUNT_ENV = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-# ─── Mapas de Cores Suaves (Fases) ───────────────────────────────────────────
+# ─── Mapas de Cores (RGB para o Google Sheets) ────────────────────────────────
 def hex_to_rgb(hex_str):
     hex_str = hex_str.lstrip('#')
     return {
@@ -27,10 +27,12 @@ FASE_COLORS = {
     'Específico':      hex_to_rgb('FFF3E0'),
     'Pico':            hex_to_rgb('FCE4EC'),
     'Taper':           hex_to_rgb('E8F5E9'),
-    'Prova':           hex_to_rgb('FFCDD2'), # Vermelho bem claro para a fase
+    'Prova':           hex_to_rgb('FFCDD2'),
     'Recuperação':     hex_to_rgb('F5F5F5'),
     'Base':            hex_to_rgb('DDEEFF')
 }
+
+COLOR_RECUPERACAO = hex_to_rgb('FFF8E1') # Amarelo claro para semanas de recuperação
 
 TIPO_COLORS = {
     'LR':    hex_to_rgb('BBDEFB'),
@@ -43,7 +45,7 @@ TIPO_COLORS = {
     'TR':    hex_to_rgb('FFE0B2'),
     'RP':    hex_to_rgb('FFCDD2'),
     'CL+S':  hex_to_rgb('B2DFDB'),
-    'PROVA': hex_to_rgb('FF5252'), # Vermelho forte para o tipo PROVA
+    'PROVA': hex_to_rgb('FF5252'),
     'REC':   hex_to_rgb('EEEEEE'),
 }
 
@@ -64,41 +66,38 @@ def parse_markdown_to_dataframe(file_path):
 
     rows = []
     current_fase, current_semana = "Base", 0
+    is_recovery_week = False
     
     lines = content.split('\n')
     for line in lines:
         # Detectar Fase
-        if '## FASE' in line or '## PROVA' in line or '## Recuperação' in line:
+        if line.startswith('## FASE') or line.startswith('## PROVA') or line.startswith('## Recuperação'):
             if 'PROVA' in line: current_fase = 'Prova'
             elif 'Recuperação' in line: current_fase = 'Recuperação'
             else:
-                fase_match = re.search(r'## (FASE \d+ — .*?)\n', line + '\n')
+                fase_match = re.search(r'## (FASE \d+ — .*?)(?:\n|$)', line)
                 if fase_match:
                     full = fase_match.group(1)
                     current_fase = full.split(' — ')[1].strip() if ' — ' in full else full
         
-        if '### Semana' in line:
+        # Detectar Semana e se é de Recuperação
+        if line.startswith('### Semana'):
             semana_match = re.search(r'### Semana (\d+)', line)
             if semana_match: current_semana = int(semana_match.group(1))
+            is_recovery_week = '⚡' in line or 'RECUPERAÇÃO' in line.upper()
 
+        # Parser da tabela
         if line.count('|') >= 9 and 'Data' not in line and '---' not in line:
             parts = [clean_md(p) for p in line.split('|')][1:-1]
             if len(parts) >= 10:
-                dist_val = parts[3].replace('km', '').strip()
-                pace_alvo = parts[4]
-                
-                # Se Detalhes ou Comentários forem "-", mantemos o "-" para visualização
-                # Em vez de converter para string vazia
-                detalhes = parts[6] if parts[6] != '' else '-'
-                comentarios = parts[9] if parts[9] != '' else '-'
-                
                 rows.append([
                     parts[0], parts[1], f"S{current_semana:02d}", current_fase,
-                    parts[2], dist_val, pace_alvo, pace_to_decimal(pace_alvo),
-                    parts[5], detalhes, parts[7], parts[8], comentarios
+                    parts[2], parts[3].replace('km', '').strip(), parts[4], 
+                    pace_to_decimal(parts[4]), parts[5], parts[6], parts[7], 
+                    parts[8], parts[9], is_recovery_week
                 ])
 
-    return pd.DataFrame(rows, columns=['Data','Dia','Semana','Fase','Tipo','Distância','PaceAlvo','PaceMédio','Zona','Detalhes','PaceReal','Percepção','Comentários'])
+    return pd.DataFrame(rows, columns=['Data','Dia','Semana','Fase','Tipo','Distância','PaceAlvo','PaceMédio','Zona','Detalhes','PaceReal','Percepção','Comentários', 'IsRecovery'])
 
 def apply_formatting(service, sheet_id, df):
     requests = []
@@ -115,9 +114,10 @@ def apply_formatting(service, sheet_id, df):
         row_idx = i + 2 
         fase = row['Fase']
         tipo = row['Tipo']
+        is_rec = row['IsRecovery']
         
-        # 1. Aplicar Cor da Fase na linha TODA (exceto a coluna Tipo que será sobrescrita)
-        bg_color = FASE_COLORS.get(fase, {"red": 1, "green": 1, "blue": 1})
+        # 1. Cor da Fase ou Recuperação para a linha TODA
+        bg_color = COLOR_RECUPERACAO if is_rec else FASE_COLORS.get(fase, {"red": 1, "green": 1, "blue": 1})
         
         requests.append({
             "repeatCell": {
@@ -139,7 +139,7 @@ def apply_formatting(service, sheet_id, df):
             }
         })
         
-        # 2. Aplicar Cor do TIPO apenas na coluna 4 (Tipo)
+        # 2. Cor do Tipo (Busca por prefixo)
         tipo_base = tipo.split(' ')[0]
         tipo_color = TIPO_COLORS.get(tipo, TIPO_COLORS.get(tipo_base, bg_color))
         
@@ -159,7 +159,7 @@ def apply_formatting(service, sheet_id, df):
             }
         })
 
-    # 3. Alinhamento à esquerda para colunas longas (Detalhes e Comentários)
+    # 3. Alinhamento à esquerda
     for col_idx in [9, 12]:
         requests.append({
             "repeatCell": {
@@ -178,9 +178,9 @@ def update_google_sheets(df):
     spreadsheet = service.spreadsheets().get(spreadsheetId=SPREADSHEET_ID).execute()
     sheet_id = next(s['properties']['sheetId'] for s in spreadsheet['sheets'] if s['properties']['title'] == 'Plano Completo')
 
-    # Escrita dos Dados
-    values = [df.columns.values.tolist()] + df.values.tolist()
-    # Mantemos o "-" se for o que está no DF
+    # Escrita (removemos a coluna IsRecovery antes de enviar os dados)
+    df_to_send = df.drop(columns=['IsRecovery'])
+    values = [df_to_send.columns.values.tolist()] + df_to_send.values.tolist()
     values = [[(val if pd.notnull(val) else '') for val in row] for row in values]
     
     service.spreadsheets().values().clear(spreadsheetId=SPREADSHEET_ID, range="'Plano Completo'!A2:M500").execute()
@@ -189,7 +189,6 @@ def update_google_sheets(df):
         valueInputOption='USER_ENTERED', body={'values': values}
     ).execute()
 
-    print("Restaurando visual organizado (Fases e Tipos)...")
     apply_formatting(service, sheet_id, df)
     print("Sucesso!")
 
