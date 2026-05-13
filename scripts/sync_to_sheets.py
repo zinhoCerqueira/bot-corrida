@@ -20,19 +20,16 @@ def hex_to_rgb(hex_str):
         "blue": int(hex_str[4:6], 16) / 255.0
     }
 
-# Cores solicitadas pelo usuário (Suaves)
 FASE_COLORS = {
     'BASE AERÓBIA':    hex_to_rgb('DDEEFF'), # Azul claro
     'DESENVOLVIMENTO': hex_to_rgb('EDE7F6'), # Roxo claro
-    'ESPECÍFICO':      hex_to_rgb('FFF8E1'), # Amarelo (igual recuperação)
+    'ESPECÍFICO':      hex_to_rgb('FFF8E1'), # Amarelo
     'PICO':            hex_to_rgb('FCE4EC'), # Vermelho claro
     'TAPER':           hex_to_rgb('E8F5E9'), # Verde claro
-    'PROVA':           hex_to_rgb('FFCDD2'), # Vermelho/Rosa claro
+    'PROVA':           hex_to_rgb('FFCDD2'), # Vermelho suave
     'RECUPERAÇÃO':     hex_to_rgb('F5F5F5'), # Cinza claro
-    'AQUECIMENTO':     hex_to_rgb('FFF9C4'), # Amarelo gema claro
+    'AQUECIMENTO':     hex_to_rgb('FFF9C4'),
 }
-
-COLOR_RECUPERACAO = hex_to_rgb('FFF8E1') # Amarelo claro (Semanas ⚡)
 
 TIPO_COLORS = {
     'LR':    hex_to_rgb('BBDEFB'),
@@ -45,8 +42,8 @@ TIPO_COLORS = {
     'TR':    hex_to_rgb('FFE0B2'),
     'RP':    hex_to_rgb('FFCDD2'),
     'CL+S':  hex_to_rgb('B2DFDB'),
-    'PROVA': hex_to_rgb('FF5252'),
-    'REC':   hex_to_rgb('EEEEEE'),
+    'PROVA': hex_to_rgb('FF5252'), # Vermelho forte
+    'REC':   hex_to_rgb('EEEEEE'), # Cinza forte
 }
 
 def pace_to_decimal(pace_str):
@@ -70,31 +67,35 @@ def parse_markdown_to_dataframe(file_path):
     
     lines = content.split('\n')
     for line in lines:
-        # Detectar Fase (Normalizado para MAIÚSCULAS)
         upper_line = line.upper()
-        if '## FASE' in upper_line or '## PROVA' in upper_line or '## RECUPERAÇÃO' in upper_line:
-            if 'PROVA' in upper_line: 
-                current_fase = 'PROVA'
-            elif 'RECUPERAÇÃO' in upper_line: 
-                current_fase = 'RECUPERAÇÃO'
-            else:
-                fase_match = re.search(r'## (FASE \d+ — .*?)(?:\n|$)', line)
-                if fase_match:
-                    full = fase_match.group(1)
-                    current_fase = full.split(' — ')[1].strip().upper() if ' — ' in full else full.upper()
+        # ORDEM IMPORTANTE: 'RECUPERAÇÃO' contém 'PROVA' no título 'Recuperação Pós-Prova'
+        # Por isso checamos Recuperação primeiro.
+        if '## RECUPERAÇÃO' in upper_line:
+            current_fase = 'RECUPERAÇÃO'
+        elif '## PROVA' in upper_line:
+            current_fase = 'PROVA'
+        elif '## FASE' in upper_line:
+            fase_match = re.search(r'## (FASE \d+ — .*?)(?:\n|$)', line)
+            if fase_match:
+                full = fase_match.group(1)
+                current_fase = full.split(' — ')[1].strip().upper() if ' — ' in full else full.upper()
         
-        # Detectar Semana e se é de Recuperação
-        if line.startswith('### Semana'):
+        if '### Semana' in line:
             semana_match = re.search(r'### Semana (\d+)', line)
             if semana_match: current_semana = int(semana_match.group(1))
             is_recovery_week = '⚡' in line or 'RECUPERAÇÃO' in line.upper()
 
-        # Parser da tabela
+        # Parser da tabela (mínimo 9 pipes e primeiro campo deve parecer data)
         if line.count('|') >= 9 and 'Data' not in line and '---' not in line:
             parts = [clean_md(p) for p in line.split('|')][1:-1]
             if len(parts) >= 10:
+                data_val = parts[0]
+                # Validação extra para garantir que é uma linha de treino (Data no formato DD/MM)
+                if not re.search(r'\d+/\d+', data_val):
+                    continue
+                
                 rows.append([
-                    parts[0], parts[1], f"S{current_semana:02d}", current_fase,
+                    data_val, parts[1], f"S{current_semana:02d}", current_fase,
                     parts[2], parts[3].replace('km', '').strip(), parts[4], 
                     pace_to_decimal(parts[4]), parts[5], parts[6], parts[7], 
                     parts[8], parts[9], is_recovery_week
@@ -105,7 +106,6 @@ def parse_markdown_to_dataframe(file_path):
 def apply_formatting(service, sheet_id, df):
     requests = []
     
-    # Congelar topo
     requests.append({
         "updateSheetProperties": {
             "properties": {"sheetId": sheet_id, "gridProperties": {"frozenRowCount": 2}},
@@ -119,10 +119,20 @@ def apply_formatting(service, sheet_id, df):
         tipo = row['Tipo']
         is_rec = row['IsRecovery']
         
-        # 1. Cor da Fase ou Recuperação para a linha TODA
-        # Se for semana de recuperação, prioriza o amarelo
-        bg_color = COLOR_RECUPERACAO if is_rec else FASE_COLORS.get(fase.upper(), {"red": 1, "green": 1, "blue": 1})
-        
+        # Cor de fundo padrão da Fase
+        bg_color = FASE_COLORS.get(fase.upper(), {"red": 1, "green": 1, "blue": 1})
+        if is_rec: bg_color = hex_to_rgb('FFF8E1') # Amarelo para semanas ⚡
+
+        # CASO ESPECIAL: Se o tipo for PROVA, a linha TODA fica vermelha forte
+        if tipo == 'PROVA':
+            bg_color = hex_to_rgb('FF5252')
+            text_color = {"red": 1, "green": 1, "blue": 1} # Branco
+            bold = True
+        else:
+            text_color = {"red": 0, "green": 0, "blue": 0} # Preto
+            bold = False
+
+        # 1. Aplicar Cor na linha TODA
         requests.append({
             "repeatCell": {
                 "range": {"sheetId": sheet_id, "startRowIndex": row_idx, "endRowIndex": row_idx + 1, "startColumnIndex": 0, "endColumnIndex": 13},
@@ -131,6 +141,7 @@ def apply_formatting(service, sheet_id, df):
                         "backgroundColor": bg_color,
                         "horizontalAlignment": "CENTER",
                         "verticalAlignment": "MIDDLE",
+                        "textFormat": {"foregroundColor": text_color, "bold": bold},
                         "borders": {
                             "top": {"style": "SOLID", "color": {"red": 0.8, "green": 0.8, "blue": 0.8}},
                             "bottom": {"style": "SOLID", "color": {"red": 0.8, "green": 0.8, "blue": 0.8}},
@@ -139,29 +150,26 @@ def apply_formatting(service, sheet_id, df):
                         }
                     }
                 },
-                "fields": "userEnteredFormat(backgroundColor,horizontalAlignment,verticalAlignment,borders)"
+                "fields": "userEnteredFormat(backgroundColor,horizontalAlignment,verticalAlignment,textFormat,borders)"
             }
         })
         
-        # 2. Cor do Tipo (Busca por prefixo)
-        tipo_base = tipo.split(' ')[0]
-        tipo_color = TIPO_COLORS.get(tipo, TIPO_COLORS.get(tipo_base, bg_color))
-        
-        requests.append({
-            "repeatCell": {
-                "range": {"sheetId": sheet_id, "startRowIndex": row_idx, "endRowIndex": row_idx + 1, "startColumnIndex": 4, "endColumnIndex": 5},
-                "cell": {
-                    "userEnteredFormat": {
-                        "backgroundColor": tipo_color,
-                        "textFormat": {
-                            "bold": True, 
-                            "foregroundColor": {"red": 1, "green": 1, "blue": 1} if tipo in ('PROVA', 'PROVA_ALVO') else {"red": 0, "green": 0, "blue": 0}
+        # 2. Se não for a linha da PROVA (que já é toda vermelha), destaca a célula do Tipo
+        if tipo != 'PROVA':
+            tipo_base = tipo.split(' ')[0]
+            tipo_color = TIPO_COLORS.get(tipo, TIPO_COLORS.get(tipo_base, bg_color))
+            requests.append({
+                "repeatCell": {
+                    "range": {"sheetId": sheet_id, "startRowIndex": row_idx, "endRowIndex": row_idx + 1, "startColumnIndex": 4, "endColumnIndex": 5},
+                    "cell": {
+                        "userEnteredFormat": {
+                            "backgroundColor": tipo_color,
+                            "textFormat": {"bold": True}
                         }
-                    }
-                },
-                "fields": "userEnteredFormat(backgroundColor,textFormat)"
-            }
-        })
+                    },
+                    "fields": "userEnteredFormat(backgroundColor,textFormat)"
+                }
+            })
 
     # 3. Alinhamento à esquerda
     for col_idx in [9, 12]:
@@ -178,7 +186,6 @@ def apply_formatting(service, sheet_id, df):
 def update_google_sheets(df):
     creds = service_account.Credentials.from_service_account_info(json.loads(SERVICE_ACCOUNT_ENV), scopes=SCOPES)
     service = build('sheets', 'v4', credentials=creds)
-
     spreadsheet = service.spreadsheets().get(spreadsheetId=SPREADSHEET_ID).execute()
     sheet_id = next(s['properties']['sheetId'] for s in spreadsheet['sheets'] if s['properties']['title'] == 'Plano Completo')
 
@@ -191,7 +198,6 @@ def update_google_sheets(df):
         spreadsheetId=SPREADSHEET_ID, range="'Plano Completo'!A2",
         valueInputOption='USER_ENTERED', body={'values': values}
     ).execute()
-
     apply_formatting(service, sheet_id, df)
     print("Sucesso!")
 
