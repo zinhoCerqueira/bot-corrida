@@ -9,6 +9,8 @@ on:
       - main
     paths:
       - 'Plano_Treino_2026.md'
+      - 'scripts/**'
+      - '.github/workflows/**'
   workflow_dispatch: # Permite rodar manualmente pelo botão no GitHub
 
 jobs:
