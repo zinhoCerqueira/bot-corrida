@@ -158,11 +158,14 @@ TIPO_BG = {
     'TR':    'FFE0B2',
     'RP':    'FFCDD2',
     'CL+S':  'B2DFDB',
-    'RP+TM': 'FFCDD2',
+    'RP+TM': '4A148C',
     'PROVA': 'FF5252',
     'REC':   'EEEEEE',
 }
-TIPO_FG = {'PROVA': 'FFFFFF'}
+TIPO_FG = {
+    'PROVA': 'FFFFFF',
+    'RP+TM': 'FFFFFF',
+}
 
 def fill(hex_color):
     return PatternFill('solid', fgColor=hex_color)
