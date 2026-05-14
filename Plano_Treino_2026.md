@@ -99,60 +99,60 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 03/05 | Dom | LR | 10 km | 6:30–6:45 | Z1–Z2 | siga o conforto | - | - | - |
-| 05/05 | Ter | FK | 7 km | 6:45 | Z1 | 2km · 5×(2min Z4≈5:05/km / 2min ) · 1km | - | - | - |
-| 07/05 | Qui | CL | 6 km | 6:35–6:50 | Z1 | - | - | - | - |
+| 03/05 | Dom | LR | 10 km | 6:30–6:45 | Z1–Z2 | Corrida longa fácil | - | - | - |
+| 05/05 | Ter | FK | 7 km | 6:45 | Z1 | 2km Z1 · 5×(2min Z4/2min Z1) · 1km Z1 | - | - | - |
+| 07/05 | Qui | CL | 6 km | 6:35–6:50 | Z1 | Corrida leve | - | - | - |
 ### Semana 2 (10–14/mai) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 10/05 | Dom | LR | 11 km | 6:30–6:40 | Z1–Z2 | - | - | - | - |
-| 12/05 | Ter | PROG | 7 km | 6:10 | Z2 | 3km → 2km /Z3 (5:50) → 2km Z3 (5:30) | - | - | - |
-| 14/05 | Qui | CL | 6 km | 6:35–6:50 | Z1 | - | - | - | - |
+| 10/05 | Dom | LR | 11 km | 6:30–6:40 | Z1–Z2 | Corrida longa | - | - | - |
+| 12/05 | Ter | PROG | 7 km | 6:10 | Z2 | 3km Z2 → 2km Z2/Z3 → 2km Z3 | - | - | - |
+| 14/05 | Qui | CL | 6 km | 6:35–6:50 | Z1 | Corrida leve | - | - | - |
 ### Semana 3 (17–21/mai) — Carga
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 17/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | - | - | - | - |
-| 19/05 | Ter | FK | 8 km | - | Z1 | 2km · 6×(2min Z4 / 90s ) · 2km | - | - | - |
-| 21/05 | Qui | CM | 7 km | 6:05–6:20 | Z2 | - | - | - | - |
+| 17/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | - | - | - |
+| 19/05 | Ter | FK | 8 km | - | Z1 | 2km Z1 · 6×(2min Z4/90s Z1) · 2km Z1 | - | - | - |
+| 21/05 | Qui | CM | 7 km | 6:05–6:20 | Z2 | Corrida moderada | - | - | - |
 ### Semana 4 (24–28/mai) — ⚡ RECUPERAÇÃO
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 24/05 | Dom | LR | 9 km | 6:40–6:50 | Z1 | volume reduzido | - | - | - |
-| 26/05 | Ter | CL | 5 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 28/05 | Qui | CL | 5 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 24/05 | Dom | LR | 9 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | - | - | - |
+| 26/05 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
+| 28/05 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
 ---
 
 ### Semana 5 (31/mai–04/jun) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 31/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | - | - | - | - |
-| 02/06 | Ter | TM 4×1km | ~8 km | 5:00–5:08 | Z4 | 2km aquec · 4×1km c/ 90s rec · 2km cool | - | - | - |
-| 04/06 | Qui | CL | 7 km | 6:40 | Z1 | - | - | - | - |
+| 31/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | - | - | - |
+| 02/06 | Ter | TM 4×1km | ~8 km | 5:00–5:08 | Z4 | 2km aquec · 4×1km Z4 c/90s rec · 2km cool | - | - | - |
+| 04/06 | Qui | CL | 7 km | 6:40 | Z1 | Corrida leve | - | - | - |
 ### Semana 6 (07–11/jun) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 07/06 | Dom | LR | 13 km | 6:30–6:40 | Z1–Z2 | - | - | - | - |
-| 09/06 | Ter | PROG | 8 km | 6:10 | Z2 | 3km → 2km Z3 (5:30) → 2km Z3 forte (5:27) → 1km | - | - | - |
-| 11/06 | Qui | CM | 7 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 07/06 | Dom | LR | 13 km | 6:30–6:40 | Z1–Z2 | Corrida longa | - | - | - |
+| 09/06 | Ter | PROG | 8 km | 6:10 | Z2 | 3km Z2 → 2km Z3 → 2km Z3 forte → 1km Z2 | - | - | - |
+| 11/06 | Qui | CM | 7 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ### Semana 7 (14–18/jun) — Carga
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 14/06 | Dom | LR | 14 km | 6:30–6:40 | Z1–Z2 | - | - | - | - |
-| 16/06 | Ter | TM 5×1km | ~9 km | 5:00–5:05 | Z4 | 2km aquec · 5×1km c/ 90s rec · 2km cool | - | - | - |
-| 18/06 | Qui | CL | 7 km | 6:40 | Z1 | - | - | - | - |
+| 14/06 | Dom | LR | 14 km | 6:30–6:40 | Z1–Z2 | Corrida longa | - | - | - |
+| 16/06 | Ter | TM 5×1km | ~9 km | 5:00–5:05 | Z4 | 2km aquec · 5×1km Z4 c/90s rec · 2km cool | - | - | - |
+| 18/06 | Qui | CL | 7 km | 6:40 | Z1 | Corrida leve | - | - | - |
 ### Semana 8 (21–25/jun) — ⚡ RECUPERAÇÃO
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 21/06 | Dom | LR | 10 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 23/06 | Ter | CL | 5 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 25/06 | Qui | CL | 5 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 21/06 | Dom | LR | 10 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | - | - | - |
+| 23/06 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
+| 25/06 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
 ---
 
 ## FASE 2 — DESENVOLVIMENTO
@@ -165,69 +165,69 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 28/06 | Dom | LR | 14 km | 6:28–6:38 | Z1–Z2 | - | - | - | - |
-| 30/06 | Ter | TR 25min | ~8 km | 5:27–5:32 | Z3 | 2km aquec · 25min · 2km cool | - | - | - |
-| 02/07 | Qui | CM | 7 km | 6:08–6:18 | Z2 | - | - | - | - |
+| 28/06 | Dom | LR | 14 km | 6:28–6:38 | Z1–Z2 | Corrida longa | - | - | - |
+| 30/06 | Ter | TR 25min | ~8 km | 5:27–5:32 | Z3 | 2km aquec · 25min Z3 · 2km cool | - | - | - |
+| 02/07 | Qui | CM | 7 km | 6:08–6:18 | Z2 | Corrida moderada | - | - | - |
 ### Semana 10 (05–09/jul) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 05/07 | Dom | LR | 15 km | 6:28 | Z1–Z2 | - | - | - | - |
-| 07/07 | Ter | TM 5×1km | ~9 km | 5:00–5:05 | Z4 | 2km aquec · 5×1km c/ 90s rec · 2km cool | - | - | - |
-| 09/07 | Qui | CM | 8 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 05/07 | Dom | LR | 15 km | 6:28 | Z1–Z2 | Corrida longa | - | - | - |
+| 07/07 | Ter | TM 5×1km | ~9 km | 5:00–5:05 | Z4 | 2km aquec · 5×1km Z4 c/90s rec · 2km cool | - | - | - |
+| 09/07 | Qui | CM | 8 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ### Semana 11 (12–16/jul) — Carga
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 12/07 | Dom | LR | 16 km | 6:25–6:35 | Z1–Z2 | - | - | - | - |
-| 14/07 | Ter | TR 30min | ~9 km | 5:27–5:32 | Z3 | 2km aquec · 30min · 2km cool | - | - | - |
-| 16/07 | Qui | CL+S | 7 km | 6:40 | Z1 | 6km · 4×20s aceleração suave (Z5) | - | - | - |
+| 12/07 | Dom | LR | 16 km | 6:25–6:35 | Z1–Z2 | Corrida longa | - | - | - |
+| 14/07 | Ter | TR 30min | ~9 km | 5:27–5:32 | Z3 | 2km aquec · 30min Z3 · 2km cool | - | - | - |
+| 16/07 | Qui | CL+S | 7 km | 6:40 | Z1 | 6km Z1 · 4×20s aceleração | - | - | - |
 ### Semana 12 (19–23/jul) — ⚡ RECUPERAÇÃO
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 19/07 | Dom | LR | 12 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 21/07 | Ter | CL | 6 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 23/07 | Qui | CL | 6 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 19/07 | Dom | LR | 12 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | - | - | - |
+| 21/07 | Ter | CL | 6 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
+| 23/07 | Qui | CL | 6 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
 ---
 
 ### Semana 13 (26–30/jul) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 26/07 | Dom | LR | 16 km | 6:25–6:35 | Z1–Z2 | - | - | - | - |
-| 28/07 | Ter | TM 6×1km | ~10 km | 5:00–5:05 | Z4 | 2km aquec · 6×1km c/ 90s rec · 2km cool | - | - | - |
-| 30/07 | Qui | CM | 8 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 26/07 | Dom | LR | 16 km | 6:25–6:35 | Z1–Z2 | Corrida longa | - | - | - |
+| 28/07 | Ter | TM 6×1km | ~10 km | 5:00–5:05 | Z4 | 2km aquec · 6×1km Z4 c/90s rec · 2km cool | - | - | - |
+| 30/07 | Qui | CM | 8 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ### Semana 14 (02–06/ago) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 02/08 | Dom | LR | 17 km | 6:25–6:35 | Z1–Z2 | - | - | - | - |
-| 04/08 | Ter | TR 35min | ~10 km | 5:25–5:30 | Z3 | 2km aquec · 35min · 2km cool | - | - | - |
-| 06/08 | Qui | CM | 8 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 02/08 | Dom | LR | 17 km | 6:25–6:35 | Z1–Z2 | Corrida longa | - | - | - |
+| 04/08 | Ter | TR 35min | ~10 km | 5:25–5:30 | Z3 | 2km aquec · 35min Z3 · 2km cool | - | - | - |
+| 06/08 | Qui | CM | 8 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ### Semana 15 (09–13/ago) — Carga
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 09/08 | Dom | LR | 17 km | 6:25–6:35 | Z1–Z2 | - | - | - | - |
-| 11/08 | Ter | TM 4×1,5km | ~10 km | 5:02–5:08 | Z4 | 2km aquec · 4×1,5km c/ 2min rec · 2km cool | - | - | - |
-| 13/08 | Qui | CL+S | 8 km | 6:40 | Z1 | 7km · 4×20s aceleração suave (Z5) | - | - | - |
+| 09/08 | Dom | LR | 17 km | 6:25–6:35 | Z1–Z2 | Corrida longa | - | - | - |
+| 11/08 | Ter | TM 4×1,5km | ~10 km | 5:02–5:08 | Z4 | 2km aquec · 4×1,5km Z4 c/2min rec · 2km cool | - | - | - |
+| 13/08 | Qui | CL+S | 8 km | 6:40 | Z1 | 7km Z1 · 4×20s aceleração | - | - | - |
 ### Semana 16 (16–20/ago) — ⚡ RECUPERAÇÃO
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 16/08 | Dom | LR | 13 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 18/08 | Ter | CL | 6 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 20/08 | Qui | CL | 6 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 16/08 | Dom | LR | 13 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | - | - | - |
+| 18/08 | Ter | CL | 6 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
+| 20/08 | Qui | CL | 6 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
 ---
 
 ### Semana 17 (23–27/ago) — Carga / Transição de Fase
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 23/08 | Dom | LR | 18 km | 6:22–6:32 | Z1–Z2 | - | - | - | - |
-| 25/08 | Ter | TR 35min | ~10 km | 5:25–5:30 | Z3 | 2km aquec · 35min · 2km cool | - | - | - |
-| 27/08 | Qui | CM | 9 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 23/08 | Dom | LR | 18 km | 6:22–6:32 | Z1–Z2 | Corrida longa | - | - | - |
+| 25/08 | Ter | TR 35min | ~10 km | 5:25–5:30 | Z3 | 2km aquec · 35min Z3 · 2km cool | - | - | - |
+| 27/08 | Qui | CM | 9 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ---
 
 ## FASE 3 — ESPECÍFICO
@@ -240,46 +240,46 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 30/08 | Dom | LR | 18 km | 6:22–6:32 | Z1–Z2 | - | - | - | - |
-| 01/09 | Ter | TM 6×1km | ~10 km | 4:58–5:05 | Z4 | 2km aquec · 6×1km c/ 90s rec · 2km cool | - | - | - |
-| 03/09 | Qui | CM | 9 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 30/08 | Dom | LR | 18 km | 6:22–6:32 | Z1–Z2 | Corrida longa | - | - | - |
+| 01/09 | Ter | TM 6×1km | ~10 km | 4:58–5:05 | Z4 | 2km aquec · 6×1km Z4 c/90s rec · 2km cool | - | - | - |
+| 03/09 | Qui | CM | 9 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ### Semana 19 (06–10/set) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 06/09 | Dom | LR | 16 km | 6:28 | Z1–Z2 | LR menor para absorver intensidade da terça | - | - | - |
-| 08/09 | Ter | TR 40min | ~11 km | 5:25–5:30 | Z3 | 2km aquec · 40min · 2km cool | - | - | - |
-| 10/09 | Qui | CM | 9 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 06/09 | Dom | LR | 16 km | 6:28 | Z1–Z2 | Corrida longa | - | - | - |
+| 08/09 | Ter | TR 40min | ~11 km | 5:25–5:30 | Z3 | 2km aquec · 40min Z3 · 2km cool | - | - | - |
+| 10/09 | Qui | CM | 9 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ### Semana 20 (13–17/set) — Carga
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 13/09 | Dom | LR | 19 km | 6:20–6:30 | Z1–Z2 | - | - | - | - |
+| 13/09 | Dom | LR | 19 km | 6:20–6:30 | Z1–Z2 | Corrida longa | - | - | - |
 | 15/09 | Ter | TM 3×2km | ~10 km | 5:05–5:10 | Z4 | 2km aquec · 3×2km c/ 2min rec · 2km cool | - | - | - |
 | 17/09 | Qui | CL+S | 8 km | 6:40 | Z1 | 7km · 5×20s aceleração suave (Z5) | - | - | - |
 ### Semana 21 (20–24/set) — ⚡ RECUPERAÇÃO
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 20/09 | Dom | LR | 14 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 22/09 | Ter | CL | 7 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 24/09 | Qui | CL | 7 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 20/09 | Dom | LR | 14 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | - | - | - |
+| 22/09 | Ter | CL | 7 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
+| 24/09 | Qui | CL | 7 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
 ---
 
 ### Semana 22 (27/set–01/out) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 27/09 | Dom | LR | 19 km | 6:20–6:30 | Z1–Z2 | - | - | - | - |
+| 27/09 | Dom | LR | 19 km | 6:20–6:30 | Z1–Z2 | Corrida longa | - | - | - |
 | 29/09 | Ter | RP 5×2km | ~12 km | 5:35–5:40 | Z3 | 2km aquec · 5×2km c/ 90s rec · 2km cool | - | - | - |
-| 01/10 | Qui | CM | 9 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 01/10 | Qui | CM | 9 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ### Semana 23 (04–08/out) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 04/10 | Dom | LR | 18 km | 6:22–6:32 | Z1–Z2 | - | - | - | - |
+| 04/10 | Dom | LR | 18 km | 6:22–6:32 | Z1–Z2 | Corrida longa | - | - | - |
 | 06/10 | Ter | TR 40min | ~11 km | 5:22–5:27 | Z3 | 2km aquec · 40min · 2km cool | - | - | - |
-| 08/10 | Qui | CM | 9 km | 6:05–6:15 | Z2 | - | - | - | - |
+| 08/10 | Qui | CM | 9 km | 6:05–6:15 | Z2 | Corrida moderada | - | - | - |
 ### Semana 24 (11–15/out) — Carga Máxima da Fase
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
@@ -291,9 +291,9 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 18/10 | Dom | LR | 14 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 20/10 | Ter | CL | 7 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 22/10 | Qui | CL | 7 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 18/10 | Dom | LR | 14 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | - | - | - |
+| 20/10 | Ter | CL | 7 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
+| 22/10 | Qui | CL | 7 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
 ---
 
 ## FASE 4 — PICO
@@ -306,14 +306,14 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 25/10 | Dom | LR | 20 km | 6:20–6:30 | Z1–Z2 | - | - | - | - |
+| 25/10 | Dom | LR | 20 km | 6:20–6:30 | Z1–Z2 | Corrida longa | - | - | - |
 | 27/10 | Ter | RP 6×2km | ~13 km | 5:35 | Z3 | 2km aquec · 6×2km c/ 90s rec · 2km cool | - | - | - |
-| 29/10 | Qui | CM | 10 km | 6:05–6:12 | Z2 | - | - | - | - |
+| 29/10 | Qui | CM | 10 km | 6:05–6:12 | Z2 | Corrida moderada | - | - | - |
 ### Semana 27 (01–05/nov) — Pico
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 01/11 | Dom | LR | 19 km | 6:20–6:30 | Z1–Z2 | - | - | - | - |
+| 01/11 | Dom | LR | 19 km | 6:20–6:30 | Z1–Z2 | Corrida longa | - | - | - |
 | 03/11 | Ter | TR 45min | ~12 km | 5:20–5:25 | Z3 | 2km aquec · 45min · 2km cool | - | - | - |
 | 05/11 | Qui | CL+S | 9 km | 6:40 | Z1 | 8km · 5×20s aceleração suave (Z5) | - | - | - |
 ### Semana 28 (08–12/nov) — Pico Máximo
@@ -322,14 +322,14 @@
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
 | 08/11 | Dom | LR | **20 km** | 6:18–6:28 | Z1–Z2 | última corrida longa pesada | - | - | - |
 | 10/11 | Ter | RP 3×3km | ~12 km | 5:35 | Z3 | 2km aquec · 3×3km c/ 2min rec · 2km cool | - | - | - |
-| 12/11 | Qui | CM | 10 km | 6:03–6:12 | Z2 | - | - | - | - |
+| 12/11 | Qui | CM | 10 km | 6:03–6:12 | Z2 | Corrida moderada | - | - | - |
 ### Semana 29 (15–19/nov) — ⚡ RECUPERAÇÃO
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 15/11 | Dom | LR | 15 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 17/11 | Ter | CL | 8 km | 6:40–6:50 | Z1 | - | - | - | - |
-| 19/11 | Qui | CL | 7 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 15/11 | Dom | LR | 15 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | - | - | - |
+| 17/11 | Ter | CL | 8 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
+| 19/11 | Qui | CL | 7 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | - | - | - |
 ---
 
 ## FASE 5 — TAPER
@@ -342,37 +342,37 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 22/11 | Dom | LR | 18 km | 6:25–6:35 | Z1–Z2 | - | - | - | - |
+| 22/11 | Dom | LR | 18 km | 6:25–6:35 | Z1–Z2 | Corrida longa | - | - | - |
 | 24/11 | Ter | TM 4×1km | ~8 km | 4:58–5:05 | Z4 | 2km aquec · 4×1km c/ 90s rec · 2km cool | - | - | - |
-| 26/11 | Qui | CM | 8 km | 6:08–6:18 | Z2 | - | - | - | - |
+| 26/11 | Qui | CM | 8 km | 6:08–6:18 | Z2 | Corrida moderada | - | - | - |
 ### Semana 31 (29/nov–03/dez) — Taper (−25% volume)
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 29/11 | Dom | LR | 15 km | 6:30–6:40 | Z1–Z2 | - | - | - | - |
+| 29/11 | Dom | LR | 15 km | 6:30–6:40 | Z1–Z2 | Corrida longa | - | - | - |
 | 01/12 | Ter | RP+TM | ~10 km | 5:40 | Z4 | 2km aquec · 3×2km RP · 2×1km (5:10/km) · 2km cool | - | - | - |
-| 03/12 | Qui | CL | 7 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 03/12 | Qui | CL | 7 km | 6:40–6:50 | Z1 | Corrida leve | - | - | - |
 ### Semana 32 (06–10/dez) — Taper (−35% volume)
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 06/12 | Dom | LR | 13 km | 6:32–6:42 | Z1–Z2 | - | - | - | - |
+| 06/12 | Dom | LR | 13 km | 6:32–6:42 | Z1–Z2 | Corrida longa | - | - | - |
 | 08/12 | Ter | TR 25min | ~8 km | 5:25–5:30 | Z3 | 2km aquec · 25min · 2km cool | - | - | - |
-| 10/12 | Qui | CL | 7 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 10/12 | Qui | CL | 7 km | 6:40–6:50 | Z1 | Corrida leve | - | - | - |
 ### Semana 33 (13–17/dez) — Taper Final (−50% volume)
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 13/12 | Dom | CL | 10 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 13/12 | Dom | CL | 10 km | 6:40–6:50 | Z1 | Corrida leve | - | - | - |
 | 15/12 | Ter | CL+S | 6 km | 6:40 | Z1 | 5km · 4×20s aceleração suave | - | - | - |
-| 17/12 | Qui | CL | 5 km | 6:40–6:50 | Z1 | - | - | - | - |
+| 17/12 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Corrida leve | - | - | - |
 ### Semana 34 (20–24/dez) — Pré-Prova
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
 | 20/12 | Dom | CL | 8 km | 6:40 | Z1 | pernas frescas, ritmo livre | - | - | - |
 | 22/12 | Ter | CL+S | 5 km | 6:40 | Z1 | 4km · 4×20s aceleração leve | - | - | - |
-| 24/12 | Qui | CL | 4 km | - | - | Opcional só se sentir pesado, senão descanse | - | - | - |
+| 24/12 | Qui | CL | 4 km | 6:40 | Z1 | Opcional — descanse se sentir pesado | - | - | - |
 ---
 
 ## PROVA — 27 de dezembro de 2026
