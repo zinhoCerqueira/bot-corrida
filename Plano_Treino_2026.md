@@ -403,8 +403,8 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
-| 29/12 | Ter | REC | 5 km | 7:00 | - | Trote muito leve +/km) recuperação ativa | - | - | - |
-| 31/12 | Qui | REC | 5 km | 7:00 | - | Trote muito leve +/km) celebre o ano | - | - | - |
+| 29/12 | Ter | REC | 5 km | 7:00+ | Z1 | Trote leve — recuperação ativa | - | - | - |
+| 31/12 | Qui | REC | 5 km | 7:00+ | Z1 | Trote leve — celebre o ano! | - | - | - |
 ---
 
 ## Dicas Gerais
