@@ -98,8 +98,13 @@ def parse_markdown_to_dataframe(file_path):
                 if not re.search(r'\d+/\d+', data_val):
                     continue
                 
+                # Simplificação da Fase para treinos históricos
+                fase_final = current_fase
+                if parts[2] == 'HIST':
+                    fase_final = 'HISTÓRICO'
+
                 rows.append([
-                    data_val, parts[1], f"S{current_semana:02d}", current_fase,
+                    data_val, parts[1], f"S{current_semana:02d}", fase_final,
                     parts[2], parts[3].replace('km', '').strip(), parts[4], 
                     pace_to_decimal(parts[4]), parts[5], parts[6], parts[7], 
                     parts[8], parts[9], is_recovery_week
