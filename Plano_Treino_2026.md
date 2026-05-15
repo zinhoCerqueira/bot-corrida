@@ -146,16 +146,16 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 03/05 | Dom | LR | 10 km | 6:30–6:45 | Z1–Z2 | Corrida longa fácil | | | | |
-| 05/05 | Ter | FK | 7 km | 6:45 | Z1 | 2km Z1 · 5×(2min Z4/2min Z1) · 1km Z1 | | | | |
-| 07/05 | Qui | CL | 6 km | 6:35–6:50 | Z1 | Corrida leve | | | | |
+| 03/05 | Dom | LR | 10 km | 6:30–6:45 | Z1–Z2 | Corrida longa fácil | 05:47 | | | Pace muito mais forte que o planejado (Z3 em vez de Z1/Z2). Ótima consistência nas parciais, mas cuidado para não exceder a intensidade em dias de base aeróbica. |
+| 05/05 | Ter | FK | 7 km | 6:45 | Z1 | 2km Z1 · 5×(2min Z4/2min Z1) · 1km Z1 | 05:34 | | | Excelente execução dos blocos de intensidade, atingindo o topo da Z4 conforme planejado. O pace médio ficou bem mais forte que o alvo, indicando boa resposta cardiovascular. |
+| 07/05 | Qui | CL | 6 km | 6:35–6:50 | Z1 | Corrida leve | 06:07 | | | Bela progressão ao longo do treino. Embora mais rápido que o alvo para CL, o ritmo permaneceu dentro da Z2 (Aeróbio Base), indicando que o plano pode ser desafiado um pouco mais no futuro. |
 ### Semana 2 (10–14/mai) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 10/05 | Dom | LR | 11 km | 6:30–6:40 | Z1–Z2 | Corrida longa | | | | |
-| 12/05 | Ter | PROG | 7 km | 6:10 | Z2 | 3km Z2 → 2km Z2/Z3 → 2km Z3 | | | | |
-| 14/05 | Qui | CL | 6 km | 6:35–6:50 | Z1 | Corrida leve | | | | |
+| 10/05 | Dom | LR | 11 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 05:52 | | Treino feito em 11/05. Bolhas nos dois pés (tênis velho/duro). Dor no ombro direito nos últimos 3km. Cardiovascularmente bem, mas dores nas pernas (joelho/tornozelo). | Cardiovascular muito forte para o pace de 05:52, porém o corpo sinalizou desgaste mecânico (dores/bolhas). Atenção ao calçado para evitar que lesões articulares limitem o progresso aeróbico. |
+| 12/05 | Ter | PROG | 7 km | 6:10 | Z2 | 3km Z2 → 2km Z2/Z3 → 2km Z3 | 11:58 | | Sessão convertida em caminhada de recuperação ativa devido às dores do dia anterior e falta de descanso. Realizado em ritmo de conversa. Acordou bem melhor no dia 13/05. | Decisão acertada de priorizar a recuperação. A caminhada ajudou a manter o corpo em movimento sem o impacto da corrida, prevenindo lesões e acelerando a recuperação das dores sentidas em 11/05. |
+| 14/05 | Qui | CL | 6 km | 6:35–6:50 | Z1 | Corrida leve | 05:43 | 4 | | Excelente resposta cardiovascular e mecânica. O pace de 05:43 foi mantido com esforço percebido baixo (3/4), indicando que o condicionamento já está acima do planejado para esta fase de base. |
 ### Semana 3 (17–21/mai) — Carga
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
