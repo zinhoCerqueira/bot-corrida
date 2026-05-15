@@ -107,10 +107,10 @@ def parse_markdown_to_dataframe(file_path):
                     data_val, parts[1], f"S{current_semana:02d}", fase_final,
                     parts[2], parts[3].replace('km', '').strip(), parts[4], 
                     pace_to_decimal(parts[4]), parts[5], parts[6], parts[7], 
-                    parts[8], parts[9], is_recovery_week
+                    parts[8], parts[9], parts[10], is_recovery_week
                 ])
 
-    return pd.DataFrame(rows, columns=['Data','Dia','Semana','Fase','Tipo','Distância','PaceAlvo','PaceMédio','Zona','Detalhes','PaceReal','Percepção','Comentários', 'IsRecovery'])
+    return pd.DataFrame(rows, columns=['Data','Dia','Semana','Fase','Tipo','Distância','PaceAlvo','PaceMédio','Zona','Detalhes','PaceReal','Percepção','Comentários','Avaliação', 'IsRecovery'])
 
 def apply_formatting(service, sheet_id, df):
     requests = []
@@ -144,7 +144,7 @@ def apply_formatting(service, sheet_id, df):
         # 1. Aplicar Cor na linha TODA
         requests.append({
             "repeatCell": {
-                "range": {"sheetId": sheet_id, "startRowIndex": row_idx, "endRowIndex": row_idx + 1, "startColumnIndex": 0, "endColumnIndex": 13},
+                "range": {"sheetId": sheet_id, "startRowIndex": row_idx, "endRowIndex": row_idx + 1, "startColumnIndex": 0, "endColumnIndex": 14},
                 "cell": {
                     "userEnteredFormat": {
                         "backgroundColor": bg_color,
@@ -180,8 +180,8 @@ def apply_formatting(service, sheet_id, df):
                 }
             })
 
-    # 3. Alinhamento à esquerda
-    for col_idx in [9, 12]:
+    # 3. Alinhamento à esquerda para colunas de texto (Detalhes, Comentários, Avaliação)
+    for col_idx in [9, 12, 13]:
         requests.append({
             "repeatCell": {
                 "range": {"sheetId": sheet_id, "startRowIndex": 2, "startColumnIndex": col_idx, "endColumnIndex": col_idx + 1},
