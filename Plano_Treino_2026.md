@@ -69,6 +69,7 @@
 
 | Fase | Período | Semanas | Foco |
 |------|---------|---------|------|
+| **Histórico** | 01/jan – 29/abr | — | Treinos realizados antes do plano formal |
 | Aquecimento | 30/abr | — | Recuperação pós-tiros |
 | **Base Aeróbia** | 03/mai – 25/jun | 1–8 | Volume aeróbio + introdução de qualidade |
 | **Desenvolvimento** | 28/jun – 27/ago | 9–17 | Volume + intensidade, Tempo Run |
@@ -77,6 +78,50 @@
 | **Taper** | 22/nov – 24/dez | 30–34 | Redução de volume, manutenção de ritmo |
 | **Prova** | 27/dez | — | Meia Maratona — Sub-2h |
 | Recuperação | 29–31/dez | — | Trote regenerativo |
+
+---
+
+## FASE 0 — HISTÓRICO (Jan–Abr/2026)
+*Treinos registrados antes do início do plano formal*
+
+| Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários |
+|------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|
+| 20/01 | Ter | HIST | 6.47 km | - | - | Treino Histórico | 06:28 | - | - |
+| 22/01 | Qui | HIST | 7 km | - | - | Treino Histórico | 06:40 | - | - |
+| 25/01 | Dom | HIST | 6.05 km | - | - | Treino Histórico | 06:02 | - | - |
+| 27/01 | Ter | HIST | 4.85 km | - | - | Treino Histórico | 06:29 | - | - |
+| 29/01 | Qui | HIST | 5.95 km | - | - | Treino Histórico | 07:46 | - | - |
+| 01/02 | Dom | HIST | 6 km | - | - | Treino Histórico | 05:38 | - | - |
+| 03/02 | Ter | HIST | 5.05 km | - | - | Treino Histórico | 07:19 | - | - |
+| 05/02 | Qui | HIST | 7.46 km | - | - | Treino Histórico | 06:09 | - | - |
+| 08/02 | Dom | HIST | 6 km | - | - | Treino Histórico | 05:44 | - | - |
+| 10/02 | Ter | HIST | 4.73 km | - | - | Treino Histórico | 07:17 | - | - |
+| 12/02 | Qui | HIST | 9.03 km | - | - | Treino Histórico | 06:24 | - | - |
+| 15/02 | Dom | HIST | 8.11 km | - | - | Treino Histórico | 06:19 | - | - |
+| 17/02 | Ter | HIST | 7.19 km | - | - | Treino Histórico | 06:16 | - | - |
+| 24/02 | Ter | HIST | 3.82 km | - | - | Treino Histórico | 05:17 | - | - |
+| 26/02 | Qui | HIST | 6.83 km | - | - | Treino Histórico | 05:54 | - | - |
+| 01/03 | Dom | HIST | 7 km | - | - | Treino Histórico | 05:56 | - | - |
+| 05/03 | Qui | HIST | 7.94 km | - | - | Treino Histórico | 06:04 | - | - |
+| 10/03 | Ter | HIST | 7.02 km | - | - | Treino Histórico | 05:52 | - | - |
+| 12/03 | Qui | HIST | 9.41 km | - | - | Treino Histórico | 06:21 | - | - |
+| 17/03 | Ter | HIST | 5.03 km | - | - | Treino Histórico | 05:36 | - | - |
+| 19/03 | Qui | HIST | 4.96 km | - | - | Treino Histórico | 06:05 | - | - |
+| 22/03 | Dom | HIST | 5.35 km | - | - | Treino Histórico | 05:08 | - | - |
+| 24/03 | Ter | HIST | 5.58 km | - | - | Treino Histórico | 05:36 | - | - |
+| 26/03 | Qui | HIST | 7.94 km | - | - | Treino Histórico | 06:19 | - | - |
+| 29/03 | Dom | HIST | 10.12 km | - | - | Treino Histórico | 05:58 | - | - |
+| 31/03 | Ter | HIST | 5.06 km | - | - | Treino Histórico | 06:00 | - | - |
+| 02/04 | Qui | HIST | 3.73 km | - | - | Treino Histórico | 06:17 | - | - |
+| 07/04 | Ter | HIST | 5 km | - | - | Treino Histórico | 05:33 | - | - |
+| 09/04 | Qui | HIST | 9.61 km | - | - | Treino Histórico | 06:11 | - | - |
+| 12/04 | Dom | HIST | 10.04 km | - | - | Treino Histórico | 05:49 | - | - |
+| 16/04 | Qui | HIST | 6.05 km | - | - | Treino Histórico | 07:17 | - | - |
+| 19/04 | Dom | HIST | 12.01 km | - | - | Treino Histórico | 06:20 | - | - |
+| 21/04 | Ter | HIST | 5.01 km | - | - | Treino Histórico | 05:08 | - | - |
+| 23/04 | Qui | HIST | 9.55 km | - | - | Treino Histórico | 06:09 | - | - |
+| 26/04 | Dom | HIST | 6.03 km | - | - | Treino Histórico | 05:26 | - | - |
+| 28/04 | Ter | HIST | 5.02 km | - | - | Treino Histórico | 05:12 | - | - |
 
 ---
 
