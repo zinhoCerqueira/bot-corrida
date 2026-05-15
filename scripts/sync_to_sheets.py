@@ -28,7 +28,8 @@ FASE_COLORS = {
     'TAPER':           hex_to_rgb('E8F5E9'), # Verde claro
     'PROVA':           hex_to_rgb('FFCDD2'), # Vermelho suave
     'RECUPERAÇÃO':     hex_to_rgb('F5F5F5'), # Cinza claro
-    'AQUECIMENTO':     hex_to_rgb('FFF9C4'),
+    'AQUECIMENTO':     hex_to_rgb('FFF9C4'), # Amarelo vivo
+    'HISTÓRICO':       hex_to_rgb('EFEBE9'), # Cinza amarronzado muito claro
 }
 
 TIPO_COLORS = {
@@ -42,6 +43,7 @@ TIPO_COLORS = {
     'TR':    hex_to_rgb('FFE0B2'),
     'RP':    hex_to_rgb('FFCDD2'),
     'CL+S':  hex_to_rgb('B2DFDB'),
+    'HIST':  hex_to_rgb('D7CCC8'), # Cinza amarronzado
     'PROVA': hex_to_rgb('FF5252'), # Vermelho forte
     'REC':   hex_to_rgb('EEEEEE'), # Cinza forte
 }
@@ -72,6 +74,8 @@ def parse_markdown_to_dataframe(file_path):
         # Por isso checamos Recuperação primeiro.
         if '## RECUPERAÇÃO' in upper_line:
             current_fase = 'RECUPERAÇÃO'
+        elif '## AQUECIMENTO' in upper_line:
+            current_fase = 'AQUECIMENTO'
         elif '## PROVA' in upper_line:
             current_fase = 'PROVA'
         elif '## FASE' in upper_line:
