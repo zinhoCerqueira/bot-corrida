@@ -29,7 +29,7 @@ FASE_COLORS = {
     'PROVA':           hex_to_rgb('FFCDD2'), # Vermelho suave
     'RECUPERAÇÃO':     hex_to_rgb('F5F5F5'), # Cinza claro
     'AQUECIMENTO':     hex_to_rgb('FFF9C4'), # Amarelo vivo
-    'HISTÓRICO':       hex_to_rgb('EFEBE9'), # Cinza amarronzado muito claro
+    'HISTORICO':       hex_to_rgb('EFEBE9'), # Cinza amarronzado muito claro
 }
 
 TIPO_COLORS = {
@@ -101,7 +101,7 @@ def parse_markdown_to_dataframe(file_path):
                 # Simplificação da Fase para treinos históricos
                 fase_final = current_fase
                 if parts[2] == 'HIST':
-                    fase_final = 'HISTÓRICO'
+                    fase_final = 'HISTORICO'
 
                 rows.append([
                     data_val, parts[1], f"S{current_semana:02d}", fase_final,
