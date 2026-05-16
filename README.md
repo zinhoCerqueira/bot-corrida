@@ -1,41 +1,46 @@
-# 🏃 Automação de Treino — Meia Maratona 2026
+# 🏃 Bot de Corrida Inteligente (Strava + Gemini + Sheets)
 
-Este repositório contém um sistema inteligente de gestão e acompanhamento de treinos focado na preparação para uma Meia Maratona em dezembro de 2026. O projeto utiliza uma abordagem "Markdown-as-Database", onde o plano de treino é a fonte de verdade, sincronizado automaticamente com o Google Sheets para visualização de dashboards.
+Sistema automatizado de gestão de treinos focado na preparação para a **Meia Maratona 2026**. O projeto utiliza uma arquitetura "Markdown-as-Database" integrada com APIs de performance e inteligência artificial para eliminar o trabalho manual de registro.
 
-## 🚀 Como Funciona
+## 🔄 O Ecossistema de Automação
 
-1.  **Registro Inteligente:** Os treinos são relatados via linguagem natural para o **Gemini CLI**.
-2.  **Processamento:** A IA interpreta os dados (pace, distância, percepção de esforço), calcula médias e gera uma avaliação técnica.
-3.  **Atualização Automática:** O arquivo `Plano_Treino_2026.md` é atualizado seguindo regras rigorosas de integridade.
-4.  **Sync para Google Sheets:** Através do GitHub Actions, os dados são enviados para uma planilha no Google Sheets, alimentando gráficos e dashboards automáticos.
+O projeto funciona como uma engrenagem automática:
+1.  **Strava:** Coleta os dados reais da sua corrida (Distância, Tempo, Pace).
+2.  **Gemini AI:** Atua como um treinador de elite, analisando objetivamente os dados do Strava contra o planejado.
+3.  **Markdown:** O arquivo `Plano_Treino_2026.md` é atualizado com o Pace Real e a Avaliação Técnica.
+4.  **Google Sheets:** Através do GitHub Actions, os dados são espelhados em uma planilha para visualização de dashboards.
 
-## 📁 Estrutura do Projeto
+## 🚀 Funcionalidades Principais
 
-*   `Plano_Treino_2026.md`: O plano mestre e diário de bordo. Contém zonas de treino, fases (Base, Desenvolvimento, etc.) e o log de cada sessão.
-*   `scripts/sync_to_sheets.py`: Script principal de automação. Converte as tabelas Markdown em dados para a API do Google Sheets.
-*   `scripts/setup/gerar_plano_excel.py`: Script utilitário para gerar o plano original em formato Excel (.xlsx). Útil para setup inicial ou backup offline.
-*   `GEMINI.md`: Protocolo de operação do Gemini CLI e regras de integridade para registro de treinos.
-*   `.github/workflows/`: Automação CI/CD para sincronização semanal ou sob demanda.
+-   **Sync Strava Inteligente:** Busca treinos automaticamente com janela de tolerância de +/- 1 dia (para compensações de treinos adiados/antecipados).
+-   **Análise Técnica Realista:** O Gemini gera feedbacks de até 30 palavras focados em métricas, sem clichês motivacionais.
+-   **Consolidação de Atividades:** Soma múltiplas corridas no mesmo dia (ex: aquecimento + treino principal).
+-   **Proteção de Integridade:** Nunca sobrescreve dados que você preencheu manualmente.
+-   **Execução On-Demand:** Botão "Run Workflow" no GitHub para sincronizar no momento que você desejar.
 
-## 🛠️ Tecnologias
+## 📁 Estrutura do Repositório
 
-*   **Python 3.x**: Processamento de dados e integração com APIs.
-*   **Pandas**: Parsing de tabelas Markdown e manipulação de DataFrames.
-*   **Google Sheets API**: Sincronização e formatação remota.
-*   **GitHub Actions**: Automação de tarefas.
-*   **Gemini CLI**: Interface de IA para gestão do repositório.
+*   `Plano_Treino_2026.md`: O diário de bordo e banco de dados principal.
+*   `scripts/strava_sync.py`: O "cérebro" da integração Strava + Gemini.
+*   `scripts/sync_to_sheets.py`: Sincronizador para o ecossistema Google.
+*   `.github/workflows/weekly_sync.yml`: Orquestrador que roda o sync toda segunda-feira (04:00 AM).
+*   `GEMINI.md`: O protocolo de comportamento da IA local.
 
-## ⚙️ Configuração
+## 🛠️ Configuração e Segurança
 
-Para replicar o ambiente de sincronização:
+O sistema utiliza **GitHub Secrets** para manter suas chaves protegidas:
 
-1.  Configure os **GitHub Secrets**:
-    *   `SPREADSHEET_ID`: O ID da sua planilha Google.
-    *   `GOOGLE_SERVICE_ACCOUNT_JSON`: A chave JSON da sua Service Account do Google Cloud.
-3.  Instale as dependências locais: `pip install -r requirements.txt`.
+| Secret | Descrição |
+| :--- | :--- |
+| `STRAVA_CLIENT_ID` | ID do seu App no Strava API |
+| `STRAVA_CLIENT_SECRET` | Secret do seu App no Strava API |
+| `STRAVA_REFRESH_TOKEN` | Token persistente para autorização |
+| `GEMINI_API_KEY` | Chave da API do Google AI Studio |
+| `GOOGLE_SHEETS_CREDENTIALS` | JSON da Service Account do Google |
+| `SPREADSHEET_ID` | ID da planilha de destino |
 
-## 📈 Objetivo
-O plano está calibrado para um objetivo **Sub-2h00** na Meia Maratona (27/12/2026), com zonas de treino baseadas no protocolo VDOT de Jack Daniels.
+## 📈 Objetivo e Metodologia
+O plano está calibrado para um objetivo **Sub-2h00** na Meia Maratona (27/12/2026), utilizando zonas de treino baseadas no protocolo VDOT.
 
 ---
-*Este projeto é um exemplo de como utilizar IA e automação para potencializar o rendimento esportivo e a disciplina no registro de dados.*
+*Desenvolvido para transformar dados brutos em insights técnicos, mantendo o foco onde ele deve estar: no asfalto.*
