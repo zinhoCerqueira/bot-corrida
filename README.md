@@ -15,7 +15,6 @@ Este repositório contém um sistema inteligente de gestão e acompanhamento de 
 *   `scripts/sync_to_sheets.py`: Script Python que converte as tabelas Markdown em dados para a API do Google Sheets, aplicando formatação condicional (cores por fase/tipo de treino).
 *   `INSTRUCTIONS_TREINO.md`: Guia de diretrizes para a IA, garantindo que o planejamento original (colunas A-J) nunca seja alterado.
 *   `GEMINI.md`: Protocolo de operação do Gemini CLI para este repositório.
-*   `guia.md`: Tutorial completo de setup da infraestrutura Google Cloud e GitHub Secrets.
 *   `.github/workflows/`: Automação CI/CD para sincronização semanal ou sob demanda.
 
 ## 🛠️ Tecnologias
@@ -30,8 +29,7 @@ Este repositório contém um sistema inteligente de gestão e acompanhamento de 
 
 Para replicar o ambiente de sincronização:
 
-1.  Siga as instruções detalhadas em `guia.md`.
-2.  Configure os **GitHub Secrets**:
+1.  Configure os **GitHub Secrets**:
     *   `SPREADSHEET_ID`: O ID da sua planilha Google.
     *   `GOOGLE_SERVICE_ACCOUNT_JSON`: A chave JSON da sua Service Account do Google Cloud.
 3.  Instale as dependências locais: `pip install -r requirements.txt`.
