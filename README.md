@@ -13,8 +13,7 @@ Este repositório contém um sistema inteligente de gestão e acompanhamento de 
 
 *   `Plano_Treino_2026.md`: O plano mestre e diário de bordo. Contém zonas de treino, fases (Base, Desenvolvimento, etc.) e o log de cada sessão.
 *   `scripts/sync_to_sheets.py`: Script Python que converte as tabelas Markdown em dados para a API do Google Sheets, aplicando formatação condicional (cores por fase/tipo de treino).
-*   `INSTRUCTIONS_TREINO.md`: Guia de diretrizes para a IA, garantindo que o planejamento original (colunas A-J) nunca seja alterado.
-*   `GEMINI.md`: Protocolo de operação do Gemini CLI para este repositório.
+*   `GEMINI.md`: Protocolo de operação do Gemini CLI e regras de integridade para registro de treinos.
 *   `.github/workflows/`: Automação CI/CD para sincronização semanal ou sob demanda.
 
 ## 🛠️ Tecnologias
