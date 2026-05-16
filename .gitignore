@@ -1,0 +1,17 @@
+# Credenciais e Segredos
+*.json
+!package.json
+!composer.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+venv/
+ENV/
+.env
+
+# SO
+.DS_Store
+Thumbs.db
