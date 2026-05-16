@@ -43,14 +43,14 @@ def analyze_with_gemini(planned, real):
     model = genai.GenerativeModel('gemini-1.5-flash')
     
     prompt = f"""
-    Como um treinador de corrida de elite, analise este treino:
+    Como um treinador de corrida de elite, analise este treino de forma realista e técnica:
     PLANEJADO: {planned}
     REALIZADO: Distância: {real['distance']:.2f}km, Pace Médio: {real['pace']}, Tempo: {real['time']}
     
     Regras:
-    1. Seja breve (máximo 15 palavras).
-    2. Compare Pace Real vs Alvo e Distância.
-    3. Use um tom técnico e motivador.
+    1. Seja direto e realista (máximo 30 palavras).
+    2. Compare objetivamente o Pace Real vs Alvo e a Distância realizada.
+    3. Foco em fatos e métricas, sem frases motivacionais genéricas.
     """
     try:
         response = model.generate_content(prompt)
