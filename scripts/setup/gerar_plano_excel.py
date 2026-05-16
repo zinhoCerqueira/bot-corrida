@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Gera o arquivo Excel do Plano de Treinamento 2026 — Meia Maratona."""
+"""
+GERADOR DE BACKUP/SETUP DO PLANO (EXCEL)
+Finalidade: Este script é utilizado APENAS para:
+1. Setup Inicial: Criar a estrutura base da planilha.
+2. Backup Offline: Gerar um arquivo .xlsx local com a formatação original.
+
+IMPORTANTE: Este script NÃO sincroniza dados realizados. Para sincronizar o log 
+de treinos do Markdown para o Google Sheets, use o 'scripts/sync_to_sheets.py'.
+"""
 import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
