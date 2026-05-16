@@ -1,38 +1,49 @@
-name: Sincronização Semanal de Treino
+name: Weekly Training Sync
 
 on:
   schedule:
-    # Roda toda segunda-feira às 04:00 AM UTC
+    # Executa toda segunda-feira às 04:00 AM UTC (01:00 AM BRT)
     - cron: '0 4 * * 1'
-  push:
-    branches:
-      - main
-    paths:
-      - 'Plano_Treino_2026.md'
-      - 'scripts/**'
-      - '.github/workflows/**'
-  workflow_dispatch: # Permite rodar manualmente pelo botão no GitHub
+  workflow_dispatch:
+    # Permite rodar manualmente pelo botão "Run workflow" no GitHub Actions
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout do código
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Configurar Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
-      - name: Instalar dependências
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install google-generativeai requests pandas
 
-      - name: Rodar script de sincronização
+      - name: Run Strava Sync
         env:
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/strava_sync.py
+
+      - name: Run Google Sheets Sync
+        env:
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: python scripts/sync_to_sheets.py
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add Plano_Treino_2026.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync treinos strava/sheets [skip ci]" && git push)
