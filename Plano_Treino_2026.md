@@ -167,7 +167,7 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 24/05 | Dom | LR | 9 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | | | | |
+| 24/05 | Dom | PROVA | 6 km | 5:15–5:25 | Z3–Z4 | Prova 6km (Meta: Sub-32min) + 3km (aq/des) | | | | |
 | 26/05 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
 | 28/05 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
 ---
