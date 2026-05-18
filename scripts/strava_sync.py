@@ -1,20 +1,41 @@
 import os
 import requests
+import json
 import pandas as pd
 from datetime import datetime, timedelta
 from google import genai
 import re
 
 # --- CONFIGURAÇÕES ---
-START_DATE = datetime(2026, 5, 16)  # Ajustado para 16 de maio
+SYNC_FILE = "scripts/last_sync.json"
+DEFAULT_START_DATE = datetime(2026, 5, 16)
 TOLERANCE_DAYS = 1
 PLAN_PATH = "Plano_Treino_2026.md"
 
-def get_strava_activities(access_token):
-    """Busca atividades de corrida no Strava após a START_DATE."""
+def load_start_date():
+    """Carrega a data do último sincronismo ou usa a padrão."""
+    if os.path.exists(SYNC_FILE):
+        try:
+            with open(SYNC_FILE, 'r') as f:
+                data = json.load(f)
+                return datetime.fromtimestamp(data['last_sync_timestamp'])
+        except Exception:
+            pass
+    return DEFAULT_START_DATE
+
+def save_start_date(dt):
+    """Salva o timestamp do sincronismo atual."""
+    with open(SYNC_FILE, 'w') as f:
+        json.dump({
+            'last_sync_timestamp': int(dt.timestamp()), 
+            'last_sync_human': dt.strftime("%Y-%m-%d %H:%M:%S")
+        }, f, indent=4)
+
+def get_strava_activities(access_token, start_dt):
+    """Busca atividades de corrida no Strava após a data informada."""
     url = "https://www.strava.com/api/v3/athlete/activities"
     headers = {"Authorization": f"Bearer {access_token}"}
-    params = {"after": int(START_DATE.timestamp()), "per_page": 50}
+    params = {"after": int(start_dt.timestamp()), "per_page": 50}
     
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200:
@@ -71,10 +92,18 @@ def format_pace(seconds_per_km):
 
 def sync():
     access_token = get_access_token()
-    activities = get_strava_activities(access_token)
+    if not access_token:
+        print("Erro: Não foi possível obter o access_token do Strava.")
+        return
+
+    start_dt = load_start_date()
+    print(f"Buscando atividades desde: {start_dt.strftime('%d/%m/%Y %H:%M:%S')}")
+    
+    activities = get_strava_activities(access_token, start_dt)
     
     if not activities:
         print("Nenhuma atividade nova encontrada no Strava.")
+        save_start_date(datetime.now())
         return
 
     # Agrupa atividades por data (Consolidação)
@@ -97,7 +126,6 @@ def sync():
         
         # Procura a linha correspondente no MD com janela de tolerância
         for i, line in enumerate(lines):
-            # Regex para capturar a data na coluna 1 (ex: | 18/05 | ou | 18/05/2026 |)
             match = re.search(r'\|\s*(\d{2}/\d{2}(?:/\d{4})?)\s*\|', line)
             if match:
                 plan_date_str = match.group(1)
@@ -105,13 +133,10 @@ def sync():
                     plan_date_str += "/2026"
                 plan_date = datetime.strptime(plan_date_str, "%d/%m/%Y")
                 
-                # Se estiver dentro da janela
                 if abs((plan_date - act_date).days) <= TOLERANCE_DAYS:
                     cols = [c.strip() for c in line.split("|")]
                     
-                    # Pace Real (7), Avaliação (10) no formato MD com pipes iniciais/finais
-                    # Sincroniza se o Pace Real estiver vazio OU se a Avaliação anterior deu erro
-                    if len(cols) > 10 and (not cols[8] or "Erro" in cols[11]):
+                    if len(cols) > 11 and (not cols[8] or "Erro" in cols[11]):
                         print(f"Sincronizando treino de {date_str} com plano de {plan_date_str}...")
                         
                         planned_info = f"Distância: {cols[4]}, Pace Alvo: {cols[5]}, Tipo: {cols[3]}"
@@ -119,27 +144,20 @@ def sync():
                         
                         avaliacao = analyze_with_gemini(planned_info, real_info)
                         
-                        # Atualiza as colunas (considerando o split que gera uma string vazia no início se a linha começa com |)
-                        # No seu caso a linha começa com " | 17/05...", então o índice 0 é vazio, 1 é Data, etc.
-                        # Vamos usar a lógica de busca dinâmica pelo conteúdo para ser mais seguro:
+                        cols[8] = pace_real
+                        cols[11] = avaliacao
                         
-                        # Re-mapeamento seguro baseado na estrutura real:
-                        # [0] "" | [1] Data | [2] Dia | [3] Treino | [4] Dist | [5] PaceAlvo | [6] Zona | [7] Detalhes | [8] PaceReal | [9] Percep | [10] Coment | [11] Avaliacao
-                        
-                        if not cols[8] or "Erro" in cols[11]:
-                            cols[8] = pace_real
-                            cols[11] = avaliacao
-                            
-                            lines[i] = " | ".join(cols) + "\n"
-                            updated = True
-                            break
+                        lines[i] = " | ".join(cols) + "\n"
+                        updated = True
+                        break
 
     if updated:
         with open(PLAN_PATH, "w", encoding="utf-8") as f:
             f.writelines(lines)
         print("Plano de treino atualizado com sucesso!")
-    else:
-        print("Nenhum registro novo para atualizar no Markdown.")
+    
+    save_start_date(datetime.now())
+    print(f"Novo marco de sincronismo salvo.")
 
 if __name__ == "__main__":
     sync()

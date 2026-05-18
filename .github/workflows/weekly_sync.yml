@@ -47,5 +47,5 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add Plano_Treino_2026.md
+          git add Plano_Treino_2026.md scripts/last_sync.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync treinos strava/sheets [skip ci]" && git push)
