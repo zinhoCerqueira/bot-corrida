@@ -4,14 +4,13 @@ Sistema automatizado de gestão de treinos focado na preparação para a **Meia 
 
 ## 🔄 O Ecossistema de Automação
 
-O projeto funciona como uma engrenagem automática:
-1.  **Strava:** Coleta os dados reais da sua corrida (Distância, Tempo, Pace).
-2.  **Gemini AI:** Atua como um treinador de elite, analisando objetivamente os dados do Strava contra o planejado.
-3.  **Markdown:** O arquivo `Plano_Treino_2026.md` é atualizado com o Pace Real e a Avaliação Técnica.
-4.  **Google Sheets:** Através do GitHub Actions, os dados são espelhados em uma planilha para visualização de dashboards.
+O projeto funciona como uma engrenagem automática com dois fluxos distintos:
+1.  **Fluxo de Inteligência (Semanal):** O GitHub Actions busca dados no Strava, processa com o Gemini AI e consolida no Markdown e no Sheets.
+2.  **Fluxo de Visualização (Reativo):** Qualquer edição manual que você fizer no `Plano_Treino_2026.md` é refletida no Google Sheets instantaneamente via push, sem acionar a IA ou o Strava.
 
 ## 🚀 Funcionalidades Principais
 
+-   **Fluxo Híbrido de Sincronismo:** Separação entre inteligência e visualização para otimização de custos e agilidade nas edições manuais.
 -   **Sync Strava Inteligente:** Busca treinos automaticamente com janela de tolerância de +/- 1 dia (para compensações de treinos adiados/antecipados).
 -   **Sincronismo Incremental:** Utiliza um marco temporal (`last_sync.json`) para buscar apenas atividades novas, otimizando o consumo de APIs e tempo de execução.
 -   **Análise Técnica Realista:** O Gemini gera feedbacks de até 30 palavras focados em métricas, sem clichês motivacionais.
@@ -25,7 +24,8 @@ O projeto funciona como uma engrenagem automática:
 *   `scripts/strava_sync.py`: O "cérebro" da integração Strava + Gemini.
 *   `scripts/last_sync.json`: Arquivo de controle que armazena o marco do último sincronismo.
 *   `scripts/sync_to_sheets.py`: Sincronizador para o ecossistema Google.
-*   `.github/workflows/weekly_sync.yml`: Orquestrador que roda o sync toda segunda-feira (04:00 AM).
+*   `.github/workflows/weekly_sync.yml`: Orquestrador semanal completo com Strava + Gemini.
+*   `.github/workflows/manual_md_to_sheets.yml`: Sincronizador reativo (MD -> Sheets).
 *   `GEMINI.md`: O protocolo de comportamento da IA local.
 
 ## 🛠️ Configuração e Segurança
