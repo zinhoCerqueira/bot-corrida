@@ -168,11 +168,13 @@ TIPO_BG = {
     'CL+S':  'B2DFDB',
     'RP+TM': '4A148C',
     'PROVA': 'FF5252',
+    'RETESTE': '2196F3',
     'REC':   'EEEEEE',
 }
 TIPO_FG = {
     'PROVA': 'FFFFFF',
     'RP+TM': 'FFFFFF',
+    'RETESTE': 'FFFFFF',
 }
 
 def fill(hex_color):
@@ -258,11 +260,16 @@ for r, s in enumerate(sessions, 3):
             cell.alignment = left()
             cell.fill = fill(row_bg)
 
-    # Highlight PROVA row differently
+    # Highlight PROVA/RETESTE row differently
     if tipo == 'PROVA':
         for c in range(1, 14):
             cell = ws1.cell(r, c)
             cell.fill = fill('FF5252')
+            cell.font = Font(bold=True, size=11, color='FFFFFF')
+    elif tipo == 'RETESTE':
+        for c in range(1, 14):
+            cell = ws1.cell(r, c)
+            cell.fill = fill('2196F3')
             cell.font = Font(bold=True, size=11, color='FFFFFF')
 
     ws1.row_dimensions[r].height = 18

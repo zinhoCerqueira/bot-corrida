@@ -45,6 +45,7 @@ TIPO_COLORS = {
     'CL+S':  hex_to_rgb('B2DFDB'),
     'HIST':  hex_to_rgb('D7CCC8'), # Cinza amarronzado
     'PROVA': hex_to_rgb('FF5252'), # Vermelho forte
+    'RETESTE': hex_to_rgb('2196F3'), # Azul
     'REC':   hex_to_rgb('EEEEEE'), # Cinza forte
 }
 
@@ -132,9 +133,13 @@ def apply_formatting(service, sheet_id, df):
         bg_color = FASE_COLORS.get(fase.upper(), {"red": 1, "green": 1, "blue": 1})
         if is_rec: bg_color = hex_to_rgb('FFF8E1') # Amarelo para semanas ⚡
 
-        # CASO ESPECIAL: Se o tipo for PROVA, a linha TODA fica vermelha forte
+        # CASO ESPECIAL: Se o tipo for PROVA ou RETESTE, a linha TODA fica com cor forte
         if tipo == 'PROVA':
-            bg_color = hex_to_rgb('FF5252')
+            bg_color = hex_to_rgb('FF5252') # Vermelho
+            text_color = {"red": 1, "green": 1, "blue": 1} # Branco
+            bold = True
+        elif tipo == 'RETESTE':
+            bg_color = hex_to_rgb('2196F3') # Azul
             text_color = {"red": 1, "green": 1, "blue": 1} # Branco
             bold = True
         else:
