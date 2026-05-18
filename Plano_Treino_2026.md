@@ -160,7 +160,7 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 17/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | | | | |
+ | 17/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 5:48 |  |  | Erro na análise da IA. | 
 | 19/05 | Ter | FK | 8 km | | Z1 | 2km Z1 · 6×(2min Z4/90s Z1) · 2km Z1 | | | | |
 | 21/05 | Qui | CM | 7 km | 6:05–6:20 | Z2 | Corrida moderada | | | | |
 ### Semana 4 (24–28/mai) — ⚡ RECUPERAÇÃO
