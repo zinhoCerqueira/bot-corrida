@@ -287,7 +287,7 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 30/08 | Dom | <font color="blue">**RETESTE**</font> | 5 km | 5:00–5:10 | Z5 | Teste 5km (Recalibragem) + 3km (aq/des) | | | | |
+| 30/08 | Dom | **RETESTE** | 5 km | 5:00–5:10 | Z5 | Teste 5km (Recalibragem) + 3km (aq/des) | | | | |
 | 01/09 | Ter | TM | ~10 km | 4:58–5:05 | Z4 | 2km aquec · 6×1km Z4 c/90s rec · 2km cool | | | | |
 | 03/09 | Qui | CM | 9 km | 6:05–6:15 | Z2 | Corrida moderada | | | | |
 ### Semana 19 (06–10/set) — Construção
@@ -389,7 +389,7 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 22/11 | Dom | <font color="blue">**RETESTE**</font> | 5 km | 4:55–5:05 | Z5 | Teste 5km (Recalibragem) + 3km (aq/des) | | | | |
+| 22/11 | Dom | **RETESTE** | 5 km | 4:55–5:05 | Z5 | Teste 5km (Recalibragem) + 3km (aq/des) | | | | |
 | 24/11 | Ter | TM | ~8 km | 4:58–5:05 | Z4 | 2km aquec · 4×1km c/ 90s rec · 2km cool | | | | |
 | 26/11 | Qui | CM | 8 km | 6:08–6:18 | Z2 | Corrida moderada | | | | |
 ### Semana 31 (29/nov–03/dez) — Taper (−25% volume)
