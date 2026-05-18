@@ -2,7 +2,7 @@ import os
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
-from google import genai
+import google.generativeai as genai
 import re
 
 # --- CONFIGURAÇÕES ---
@@ -39,7 +39,8 @@ def get_access_token():
 
 def analyze_with_gemini(planned, real):
     """Usa o Gemini para gerar uma análise técnica do treino."""
-    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+    model = genai.GenerativeModel('gemini-1.5-flash')
     
     prompt = f"""
     Como um treinador de corrida de elite, analise este treino de forma realista e técnica:
@@ -52,10 +53,7 @@ def analyze_with_gemini(planned, real):
     3. Foco em fatos e métricas, sem frases motivacionais genéricas.
     """
     try:
-        response = client.models.generate_content(
-            model='gemini-1.5-flash',
-            contents=prompt
-        )
+        response = model.generate_content(prompt)
         return response.text.strip()
     except Exception as e:
         print(f"Erro Gemini: {e}")
@@ -102,23 +100,24 @@ def sync():
                     plan_date_str += "/2026"
                 plan_date = datetime.strptime(plan_date_str, "%d/%m/%Y")
                 
-                # Se estiver dentro da janela e a coluna 'Pace Real' (coluna 8) estiver vazia
+                # Se estiver dentro da janela
                 if abs((plan_date - act_date).days) <= TOLERANCE_DAYS:
                     cols = [c.strip() for c in line.split("|")]
-
+                    
                     # Pace Real (8), Avaliação (11)
-                    if len(cols) > 8 and not cols[8]:
+                    # Sincroniza se o Pace Real estiver vazio OU se a Avaliação anterior deu erro
+                    if len(cols) > 11 and (not cols[8] or "Erro" in cols[11]):
                         print(f"Sincronizando treino de {date_str} com plano de {plan_date_str}...")
-
+                        
                         planned_info = f"Distância: {cols[4]}, Pace Alvo: {cols[5]}, Tipo: {cols[3]}"
                         real_info = {"distance": stats['dist'], "pace": pace_real, "time": format_pace(stats['time'])}
-
+                        
                         avaliacao = analyze_with_gemini(planned_info, real_info)
-
+                        
                         # Atualiza as colunas
                         cols[8] = pace_real
                         cols[11] = avaliacao
-
+                        
                         lines[i] = " | ".join(cols) + "\n"
                         updated = True
                         break
@@ -129,10 +128,6 @@ def sync():
         print("Plano de treino atualizado com sucesso!")
     else:
         print("Nenhum registro novo para atualizar no Markdown.")
-
-if __name__ == "__main__":
-    sync()
-
 
 if __name__ == "__main__":
     sync()
