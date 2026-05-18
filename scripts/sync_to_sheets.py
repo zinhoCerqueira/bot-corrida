@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 # Configurações
 MD_FILE = 'Plano_Treino_2026.md'
 SPREADSHEET_ID = os.environ.get('SPREADSHEET_ID')
-SERVICE_ACCOUNT_ENV = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
+SERVICE_ACCOUNT_ENV = os.environ.get('GOOGLE_SHEETS_CREDENTIALS')
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
 # ─── Mapas de Cores (RGB para o Google Sheets) ────────────────────────────────

@@ -2,11 +2,11 @@ import os
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
-import google.generativeai as genai
+from google import genai
 import re
 
 # --- CONFIGURAÇÕES ---
-START_DATE = datetime(2026, 5, 17)  # Data de corte para o sync
+START_DATE = datetime(2026, 5, 16)  # Ajustado para 16 de maio
 TOLERANCE_DAYS = 1
 PLAN_PATH = "Plano_Treino_2026.md"
 
@@ -39,8 +39,7 @@ def get_access_token():
 
 def analyze_with_gemini(planned, real):
     """Usa o Gemini para gerar uma análise técnica do treino."""
-    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
     
     prompt = f"""
     Como um treinador de corrida de elite, analise este treino de forma realista e técnica:
@@ -53,9 +52,13 @@ def analyze_with_gemini(planned, real):
     3. Foco em fatos e métricas, sem frases motivacionais genéricas.
     """
     try:
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=prompt
+        )
         return response.text.strip()
     except Exception as e:
+        print(f"Erro Gemini: {e}")
         return "Erro na análise da IA."
 
 def format_pace(seconds_per_km):
@@ -91,29 +94,31 @@ def sync():
         
         # Procura a linha correspondente no MD com janela de tolerância
         for i, line in enumerate(lines):
-            # Regex para capturar a data na coluna 1 (ex: | 18/05/2026 |)
-            match = re.search(r'\|\s*(\d{2}/\d{2}/\d{4})\s*\|', line)
+            # Regex para capturar a data na coluna 1 (ex: | 18/05 | ou | 18/05/2026 |)
+            match = re.search(r'\|\s*(\d{2}/\d{2}(?:/\d{4})?)\s*\|', line)
             if match:
-                plan_date = datetime.strptime(match.group(1), "%d/%m/%Y")
+                plan_date_str = match.group(1)
+                if len(plan_date_str) == 5: # Formato DD/MM
+                    plan_date_str += "/2026"
+                plan_date = datetime.strptime(plan_date_str, "%d/%m/%Y")
                 
-                # Se estiver dentro da janela e a coluna 'Pace Real' (coluna 11) estiver vazia
+                # Se estiver dentro da janela e a coluna 'Pace Real' (coluna 8) estiver vazia
                 if abs((plan_date - act_date).days) <= TOLERANCE_DAYS:
                     cols = [c.strip() for c in line.split("|")]
-                    
-                    # Coluna 11 é o Pace Real, Coluna 14 é Avaliação
-                    # Se Pace Real estiver vazio (ou apenas espaços)
-                    if len(cols) > 11 and not cols[11]:
-                        print(f"Sincronizando treino de {date_str} com plano de {match.group(1)}...")
-                        
-                        planned_info = f"Distância: {cols[5]}, Pace Alvo: {cols[6]}, Tipo: {cols[3]}"
+
+                    # Pace Real (8), Avaliação (11)
+                    if len(cols) > 8 and not cols[8]:
+                        print(f"Sincronizando treino de {date_str} com plano de {plan_date_str}...")
+
+                        planned_info = f"Distância: {cols[4]}, Pace Alvo: {cols[5]}, Tipo: {cols[3]}"
                         real_info = {"distance": stats['dist'], "pace": pace_real, "time": format_pace(stats['time'])}
-                        
+
                         avaliacao = analyze_with_gemini(planned_info, real_info)
-                        
-                        # Atualiza as colunas (índices 11 e 14)
-                        cols[11] = pace_real
-                        cols[14] = avaliacao
-                        
+
+                        # Atualiza as colunas
+                        cols[8] = pace_real
+                        cols[11] = avaliacao
+
                         lines[i] = " | ".join(cols) + "\n"
                         updated = True
                         break
@@ -124,6 +129,10 @@ def sync():
         print("Plano de treino atualizado com sucesso!")
     else:
         print("Nenhum registro novo para atualizar no Markdown.")
+
+if __name__ == "__main__":
+    sync()
+
 
 if __name__ == "__main__":
     sync()
