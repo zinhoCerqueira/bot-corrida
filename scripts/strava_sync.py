@@ -56,18 +56,12 @@ def analyze_with_gemini(planned, real):
     """
     try:
         response = client.models.generate_content(
-            model='gemini-1.5-flash',
+            model='gemini-2.0-flash',
             contents=prompt
         )
         return response.text.strip()
     except Exception as e:
         print(f"Erro Gemini: {e}")
-        print("Listando modelos disponíveis para debug:")
-        try:
-            for m in client.models.list():
-                print(f"- {m.name}")
-        except Exception as list_e:
-            print(f"Não foi possível listar modelos: {list_e}")
         return "Erro na análise da IA."
 
 def format_pace(seconds_per_km):
