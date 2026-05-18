@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
     # Permite rodar manualmente pelo botão "Run workflow" no GitHub Actions
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
