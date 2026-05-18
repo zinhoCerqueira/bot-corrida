@@ -39,7 +39,10 @@ def get_access_token():
 
 def analyze_with_gemini(planned, real):
     """Usa o Gemini para gerar uma análise técnica do treino."""
-    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+    client = genai.Client(
+        api_key=os.getenv("GEMINI_API_KEY"),
+        http_options={'api_version': 'v1'}
+    )
     
     prompt = f"""
     Como um treinador de corrida de elite, analise este treino de forma realista e técnica:
@@ -59,6 +62,12 @@ def analyze_with_gemini(planned, real):
         return response.text.strip()
     except Exception as e:
         print(f"Erro Gemini: {e}")
+        print("Listando modelos disponíveis para debug:")
+        try:
+            for m in client.models.list():
+                print(f"- {m.name}")
+        except Exception as list_e:
+            print(f"Não foi possível listar modelos: {list_e}")
         return "Erro na análise da IA."
 
 def format_pace(seconds_per_km):
