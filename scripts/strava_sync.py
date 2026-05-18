@@ -106,9 +106,9 @@ def sync():
                 if abs((plan_date - act_date).days) <= TOLERANCE_DAYS:
                     cols = [c.strip() for c in line.split("|")]
                     
-                    # Pace Real (8), Avaliação (11)
+                    # Pace Real (7), Avaliação (10) no formato MD com pipes iniciais/finais
                     # Sincroniza se o Pace Real estiver vazio OU se a Avaliação anterior deu erro
-                    if len(cols) > 11 and (not cols[8] or "Erro" in cols[11]):
+                    if len(cols) > 10 and (not cols[8] or "Erro" in cols[11]):
                         print(f"Sincronizando treino de {date_str} com plano de {plan_date_str}...")
                         
                         planned_info = f"Distância: {cols[4]}, Pace Alvo: {cols[5]}, Tipo: {cols[3]}"
@@ -116,13 +116,20 @@ def sync():
                         
                         avaliacao = analyze_with_gemini(planned_info, real_info)
                         
-                        # Atualiza as colunas
-                        cols[8] = pace_real
-                        cols[11] = avaliacao
+                        # Atualiza as colunas (considerando o split que gera uma string vazia no início se a linha começa com |)
+                        # No seu caso a linha começa com " | 17/05...", então o índice 0 é vazio, 1 é Data, etc.
+                        # Vamos usar a lógica de busca dinâmica pelo conteúdo para ser mais seguro:
                         
-                        lines[i] = " | ".join(cols) + "\n"
-                        updated = True
-                        break
+                        # Re-mapeamento seguro baseado na estrutura real:
+                        # [0] "" | [1] Data | [2] Dia | [3] Treino | [4] Dist | [5] PaceAlvo | [6] Zona | [7] Detalhes | [8] PaceReal | [9] Percep | [10] Coment | [11] Avaliacao
+                        
+                        if not cols[8] or "Erro" in cols[11]:
+                            cols[8] = pace_real
+                            cols[11] = avaliacao
+                            
+                            lines[i] = " | ".join(cols) + "\n"
+                            updated = True
+                            break
 
     if updated:
         with open(PLAN_PATH, "w", encoding="utf-8") as f:
