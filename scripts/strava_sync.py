@@ -50,7 +50,7 @@ def analyze_with_gemini(planned, real):
     REALIZADO: Distância: {real['distance']:.2f}km, Pace Médio: {real['pace']}, Tempo: {real['time']}
     
     Regras:
-    1. Seja direto e realista (máximo 30 palavras).
+    1. Seja direto e realista (máximo 40 palavras).
     2. Compare objetivamente o Pace Real vs Alvo e a Distância realizada.
     3. Foco em fatos e métricas, sem frases motivacionais genéricas.
     """
