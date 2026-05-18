@@ -134,11 +134,12 @@ def apply_formatting(service, sheet_id, df):
         if is_rec: bg_color = hex_to_rgb('FFF8E1') # Amarelo para semanas ⚡
 
         # CASO ESPECIAL: Se o tipo for PROVA ou RETESTE, a linha TODA fica com cor forte
-        if tipo == 'PROVA':
+        tipo_upper = tipo.upper()
+        if tipo_upper == 'PROVA':
             bg_color = hex_to_rgb('FF5252') # Vermelho
             text_color = {"red": 1, "green": 1, "blue": 1} # Branco
             bold = True
-        elif tipo == 'RETESTE':
+        elif tipo_upper == 'RETESTE':
             bg_color = hex_to_rgb('2196F3') # Azul
             text_color = {"red": 1, "green": 1, "blue": 1} # Branco
             bold = True

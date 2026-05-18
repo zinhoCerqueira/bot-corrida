@@ -84,7 +84,7 @@ sessions = [
     ('2026-08-25','Ter',17,'Desenvolvimento','TR', 10.0,'5:25–5:30','Z3',   '2km aquec · 35min Z3 · 2km cool',False, ' ', None, ' '),
     ('2026-08-27','Qui',17,'Desenvolvimento','CM',  9.0,'6:05–6:15','Z2',   'Corrida moderada',False, ' ', None, ' '),
     # ── Fase 3: Específico ──
-    ('2026-08-30','Dom',18,'Específico','LR', 18.0,'6:22–6:32','Z1-Z2','Corrida longa',False, ' ', None, ' '),
+    ('2026-08-30','Dom',18,'Específico','RETESTE', 5.0,'5:00–5:10','Z5',   'Teste 5km (Recalibragem) + 3km (aq/des)',False, ' ', None, ' '),
     ('2026-09-01','Ter',18,'Específico','TM', 10.0,'4:58–5:05','Z4',   '2km aquec · 6×1km Z4 c/90s rec · 2km cool',False, ' ', None, ' '),
     ('2026-09-03','Qui',18,'Específico','CM',  9.0,'6:05–6:15','Z2',   'Corrida moderada',False, ' ', None, ' '),
     ('2026-09-06','Dom',19,'Específico','LR', 16.0,'6:28',     'Z1-Z2','Corrida longa',False, ' ', None, ' '),
@@ -122,7 +122,7 @@ sessions = [
     ('2026-11-17','Ter',29,'Pico','CL',  8.0,'6:40–6:50','Z1',   'Leve — recuperação ⚡',True, ' ', None, ' '),
     ('2026-11-19','Qui',29,'Pico','CL',  7.0,'6:40–6:50','Z1',   'Leve — recuperação ⚡',True, ' ', None, ' '),
     # ── Fase 5: Taper ──
-    ('2026-11-22','Dom',30,'Taper','LR', 18.0,'6:25–6:35','Z1-Z2','Corrida longa',False, ' ', None, ' '),
+    ('2026-11-22','Dom',30,'Taper','RETESTE', 5.0,'4:55–5:05','Z5',   'Teste 5km (Recalibragem) + 3km (aq/des)',False, ' ', None, ' '),
     ('2026-11-24','Ter',30,'Taper','TM',  8.0,'4:58–5:05','Z4',   '2km aquec · 4×1km Z4 c/90s rec · 2km cool',False, ' ', None, ' '),
     ('2026-11-26','Qui',30,'Taper','CM',  8.0,'6:08–6:18','Z2',   'Corrida moderada',False, ' ', None, ' '),
     ('2026-11-29','Dom',31,'Taper','LR', 15.0,'6:30–6:40','Z1-Z2','Corrida longa',False, ' ', None, ' '),
