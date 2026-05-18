@@ -2,7 +2,7 @@ import os
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
-import google.generativeai as genai
+from google import genai
 import re
 
 # --- CONFIGURAÇÕES ---
@@ -39,8 +39,7 @@ def get_access_token():
 
 def analyze_with_gemini(planned, real):
     """Usa o Gemini para gerar uma análise técnica do treino."""
-    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
     
     prompt = f"""
     Como um treinador de corrida de elite, analise este treino de forma realista e técnica:
@@ -53,7 +52,10 @@ def analyze_with_gemini(planned, real):
     3. Foco em fatos e métricas, sem frases motivacionais genéricas.
     """
     try:
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=prompt
+        )
         return response.text.strip()
     except Exception as e:
         print(f"Erro Gemini: {e}")
