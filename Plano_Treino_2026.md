@@ -161,7 +161,7 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
  | 17/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 5:48 | 7-8 | Últimos 3km mais sofridos (ansiedade de olhar o celular). Dores no ombro voltaram (em teste de melhorias). Sem dores nas pernas ou alto esforço cardiovascular. | Manutenção de pace forte (05:48) com baixo esforço cardiovascular, mas percepção de esforço elevada no final por fatores psicológicos e posturais. Focar no relaxamento do ombro e controle da ansiedade. | 
-| 19/05 | Ter | FK | 8 km | | Z1 | 2km Z1 · 6×(2min Z4/90s Z1) · 2km Z1 | | | | |
+| 19/05 | Ter | FK | 8 km | 6:45 | Z1 | 2km Z1 · 6×(2min Z4/90s Z1) · 2km Z1 | | | | |
 | 21/05 | Qui | CM | 7 km | 6:05–6:20 | Z2 | Corrida moderada | | | | |
 ### Semana 4 (24–28/mai) — ⚡ RECUPERAÇÃO
 
@@ -287,7 +287,7 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 30/08 | Dom | LR | 18 km | 6:22–6:32 | Z1–Z2 | Corrida longa | | | | |
+| 30/08 | Dom | <font color="blue">**RETESTE**</font> | 5 km | 5:00–5:10 | Z5 | Teste 5km (Recalibragem) + 3km (aq/des) | | | | |
 | 01/09 | Ter | TM | ~10 km | 4:58–5:05 | Z4 | 2km aquec · 6×1km Z4 c/90s rec · 2km cool | | | | |
 | 03/09 | Qui | CM | 9 km | 6:05–6:15 | Z2 | Corrida moderada | | | | |
 ### Semana 19 (06–10/set) — Construção
@@ -389,7 +389,7 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 22/11 | Dom | LR | 18 km | 6:25–6:35 | Z1–Z2 | Corrida longa | | | | |
+| 22/11 | Dom | <font color="blue">**RETESTE**</font> | 5 km | 4:55–5:05 | Z5 | Teste 5km (Recalibragem) + 3km (aq/des) | | | | |
 | 24/11 | Ter | TM | ~8 km | 4:58–5:05 | Z4 | 2km aquec · 4×1km c/ 90s rec · 2km cool | | | | |
 | 26/11 | Qui | CM | 8 km | 6:08–6:18 | Z2 | Corrida moderada | | | | |
 ### Semana 31 (29/nov–03/dez) — Taper (−25% volume)
@@ -470,8 +470,8 @@
 
 ### Reteste de Zonas
 Refaça o Teste de 5km a cada **2–3 meses** para recalibrar as zonas conforme a evolução:
-- Agosto/2026 (início da Fase Específica)
-- Novembro/2026 (início do Taper)
+- **30/ago/2026** (início da Fase Específica)
+- **22/nov/2026** (início do Taper)
 
 ### Nutrição nas corridas longas
 - A partir de **14 km**: gel de carboidrato, tâmaras ou banana a cada 45–50 min
