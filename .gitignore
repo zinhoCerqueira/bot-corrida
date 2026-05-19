@@ -15,3 +15,6 @@ ENV/
 # SO
 .DS_Store
 Thumbs.db
+
+# Gemini
+GEMINI.md
