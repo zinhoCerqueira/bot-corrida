@@ -161,7 +161,7 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
  | 17/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 5:48 | 7-8 | Últimos 3km mais sofridos (ansiedade de olhar o celular). Dores no ombro voltaram (em teste de melhorias). Sem dores nas pernas ou alto esforço cardiovascular. | Manutenção de pace forte (05:48) com baixo esforço cardiovascular, mas percepção de esforço elevada no final por fatores psicológicos e posturais. Focar no relaxamento do ombro e controle da ansiedade. | 
-| 19/05 | Ter | FK | 8 km | 6:45 | Z1 | 2km Z1 · 6×(2min Z4/90s Z1) · 2km Z1 | | | Treino de amanhã. | |
+| 19/05 | Ter | FK | 8 km | 6:45 | Z1 | 2km Z1 · 6×(2min Z4/90s Z1) · 2km Z1 | | | | |
 | 21/05 | Qui | CM | 7 km | 6:05–6:20 | Z2 | Corrida moderada | | | | |
 ### Semana 4 (24–28/mai) — ⚡ RECUPERAÇÃO
 
