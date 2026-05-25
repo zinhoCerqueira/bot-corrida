@@ -161,13 +161,13 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
  | 17/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 5:48 | 7-8 | Últimos 3km mais sofridos (ansiedade de olhar o celular). Dores no ombro voltaram (em teste de melhorias). Sem dores nas pernas ou alto esforço cardiovascular. | Manutenção de pace forte (05:48) com baixo esforço cardiovascular, mas percepção de esforço elevada no final por fatores psicológicos e posturais. Focar no relaxamento do ombro e controle da ansiedade. | 
-| 19/05 | Ter | FK | 8 km | 6:45 | Z1 | 2km Z1 · 6×(2min Z4/90s Z1) · 2km Z1 | | | | |
-| 21/05 | Qui | CM | 7 km | 6:05–6:20 | Z2 | Corrida moderada | | | | |
+ | 19/05 | Ter | FK | 8 km | 6:45 | Z1 | 2km Z1 · 6×(2min Z4/90s Z1) · 2km Z1 | 5:35 |  |  | O treino excedeu significativamente o ritmo alvo (5:35 vs 6:45). A distância foi mantida, mas a intensidade foi 1:10/km mais rápida do que o planejado, indicando potencial desvio do objetivo de FK ou uma execução muito agressiva. | 
+ | 21/05 | Qui | CM | 7 km | 6:05–6:20 | Z2 | Corrida moderada | 5:51 |  |  | Pace significativamente mais rápido (5:51 vs 6:05-6:20). Distância realizada dentro da meta. Treino muito mais intenso que o planejado. | 
 ### Semana 4 (24–28/mai) — ⚡ RECUPERAÇÃO
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 24/05 | Dom | PROVA | 6 km | 5:15–5:25 | Z3–Z4 | Prova 6km (Meta: Sub-32min) + 3km (aq/des) | | | | |
+ | 24/05 | Dom | PROVA | 6 km | 5:15–5:25 | Z3–Z4 | Prova 6km (Meta: Sub-32min) + 3km (aq/des) | 5:07 |  |  | O atleta superou o alvo, correndo 0.34km a mais e 8-18s/km mais rápido que o planejado. A prova foi executada com intensidade significativamente superior. | 
 | 26/05 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
 | 28/05 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
 ---
