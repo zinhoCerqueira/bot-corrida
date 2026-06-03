@@ -168,8 +168,8 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 24/05 | Dom | PROVA | 6 km | 5:15–5:25 | Z3–Z4 | Prova 6km (Meta: Sub-32min) + 3km (aq/des) | 5:07 |  |  | O atleta superou o alvo, correndo 0.34km a mais e 8-18s/km mais rápido que o planejado. A prova foi executada com intensidade significativamente superior. | 
-| 26/05 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
-| 28/05 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
+ | 26/05 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | 6:03 |  |  | Desempenho significativamente superior ao planejado. Ritmo médio 40-50 segundos/km mais rápido. Distância 20% maior. Excesso de intensidade para um treino CL, indicando possível erro de percepção ou teste de ritmo. | 
+ | 28/05 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | 5:48 |  |  | O treino foi significativamente mais rápido e longo que o planejado. O ritmo médio (5:48/km) está 52-62 segundos mais veloz que o alvo (6:40-6:50/km). A distância excede em 1.2 km o objetivo. | 
 ---
 
 ### Semana 5 (31/mai–04/jun) — Construção
@@ -177,7 +177,7 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 31/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | | | | |
-| 02/06 | Ter | TM | ~8 km | 5:00–5:08 | Z4 | 2km aquec · 4×1km Z4 c/90s rec · 2km cool | | | | |
+ | 02/06 | Ter | TM | ~8 km | 5:00–5:08 | Z4 | 2km aquec · 4×1km Z4 c/90s rec · 2km cool | 6:15 |  |  | **Análise:** Distância atingida, mas o pace médio (6:15) ficou significativamente **acima** do alvo (5:00-5:08). Houve uma **desaceleração** considerável em relação à meta. | 
 | 04/06 | Qui | CL | 7 km | 6:40 | Z1 | Corrida leve | | | | |
 ### Semana 6 (07–11/jun) — Construção
 
