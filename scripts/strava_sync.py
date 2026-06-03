@@ -56,7 +56,16 @@ def get_access_token():
             "grant_type": "refresh_token",
         },
     )
-    return res.json().get("access_token")
+    if res.status_code != 200:
+        print(f"Erro na Autenticação Strava (Status {res.status_code}):")
+        print(f"Resposta: {res.text}")
+        return None
+    
+    try:
+        return res.json().get("access_token")
+    except Exception as e:
+        print(f"Erro ao processar JSON de autenticação: {e}")
+        return None
 
 def analyze_with_gemini(planned, real):
     """Usa o Gemini para gerar uma análise técnica do treino."""
