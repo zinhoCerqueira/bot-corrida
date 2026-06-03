@@ -92,8 +92,8 @@ def parse_markdown_to_dataframe(file_path):
 
         # Parser da tabela (mínimo 9 pipes e primeiro campo deve parecer data)
         if line.count('|') >= 9 and 'Data' not in line and '---' not in line:
-            parts = [clean_md(p) for p in line.split('|')][1:-1]
-            if len(parts) >= 10:
+            parts = [clean_md(p) for p in line.strip().split('|')][1:-1]
+            if len(parts) >= 11:
                 data_val = parts[0]
                 # Validação extra para garantir que é uma linha de treino (Data no formato DD/MM)
                 if not re.search(r'\d+/\d+', data_val):
