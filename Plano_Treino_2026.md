@@ -178,7 +178,7 @@
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 31/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | | | | |
  | 02/06 | Ter | TM | ~8 km | 5:00–5:08 | Z4 | 2km aquec · 4×1km Z4 c/90s rec · 2km cool | 6:15 |  |  | **Análise:** Distância atingida, mas o pace médio (6:15) ficou significativamente **acima** do alvo (5:00-5:08). Houve uma **desaceleração** considerável em relação à meta. | 
-| 04/06 | Qui | CL | 7 km | 6:40 | Z1 | Corrida leve | | | | |
+ | 04/06 | Qui | CL | 7 km | 6:40 | Z1 | Corrida leve | 6:13 |  |  | Erro na análise da IA. | 
 ### Semana 6 (07–11/jun) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
