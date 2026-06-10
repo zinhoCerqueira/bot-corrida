@@ -105,9 +105,8 @@ def sync():
         print("Erro: Não foi possível obter o access_token do Strava.")
         return
 
-    # start_dt = load_start_date()
-    start_dt = datetime.now() - timedelta(days=7)
-    print(f"FORÇANDO busca de atividades dos últimos 7 dias: desde {start_dt.strftime('%d/%m/%Y %H:%M:%S')}")
+    start_dt = load_start_date()
+    print(f"Buscando atividades desde: {start_dt.strftime('%d/%m/%Y %H:%M:%S')}")
     
     activities = get_strava_activities(access_token, start_dt)
     

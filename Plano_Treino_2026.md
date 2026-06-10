@@ -177,17 +177,14 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 31/05 | Dom | LR | 12 km | 6:30–6:40 | Z1–Z2 | Corrida longa | | | | |
- | 02/06 | Ter | TM | ~8 km | 5:00–5:08 | Z4 | 2km aquec · 4×1km Z4 c/90s rec · 2km cool | 6:15 |  |  | **Análise:** Distância atingida, mas o pace médio (6:15) ficou significativamente **acima** do alvo (5:00-5:08). Houve uma **desaceleração** considerável em relação à meta. | 
- | 04/06 | Qui | CL | 7 km | 6:40 | Z1 | Corrida leve | 6:13 |  |  | Realizou 16% menos distância (4,36 km em vez de 7 km) com ritmo 3% mais rápido (6:13 vs 6:40). Tempo total 27:10 indica esforço intenso, mas não completou o percurso planejado. Necessite ajuste de volume e ritmo para adaptação. | 
+| 02/06 | Ter | TM | ~8 km | 5:00–5:08 | Z4 | 2km aquec · 4×1km Z4 c/90s rec · 2km cool | 6:15 |  |  | **Análise:** Distância atingida, mas o pace médio (6:15) ficou significativamente acima do alvo (5:00-5:08). Houve uma desaceleração considerável em relação à meta. |
+| 04/06 | Qui | CL | 7 km | 6:40 | Z1 | Corrida leve | 6:13 |  |  | Realizou 16% menos distância (4,36 km em vez de 7 km) com ritmo 3% mais rápido (6:13 vs 6:40). Tempo total 27:10 indica esforço intenso, mas não completou o percurso planejado. Necessite ajuste de volume e ritmo para adaptação. |
 ### Semana 6 (07–11/jun) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
- | 07/06 | Dom | LR | 13 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 5:40 |  |  | Pace real 5:40/km vs alvo 6:30-6:40/km. 50s/km mais rápido. Distância 13.03km (diferença insignificante). | 
- | 09/06 | Ter | PROG | 8 km | 6:10 | Z2 | 3km Z2 → 2km Z3 → 2km Z3 forte → 1km Z2 | 5:28 |  |  | Realizou 8,01 km com 5:28/km (43:54 total), superando o alvo de 6:10/km (49:00). Bom desempenho, ritmo acima do planejado.  
-
-**Análise técnica:** Treino bem executado, ritmo sustentável demonstrado. Indica boa condicionamento e execução estratégica. | 
-| 11/06 | Qui | CM | 7 km | 6:05–6:15 | Z2 | Corrida moderada | | | | |
+| 07/06 | Dom | LR | 13 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 5:40 |  |  | Pace real 5:40/km vs alvo 6:30-6:40/km. 50s/km mais rápido. Distância 13.03km (diferença insignificante). |
+| 09/06 | Ter | PROG | 8 km | 6:10 | Z2 | 3km Z2 → 2km Z3 → 2km Z3 forte → 1km Z2 | 5:28 |  |  | Realizou 8,01 km com 5:28/km (43:54 total), superando o alvo de 6:10/km (49:00). Bom desempenho, ritmo acima do planejado. Análise técnica: Treino bem executado, ritmo sustentável demonstrado. Indica boa condicionamento e execução estratégica. || 11/06 | Qui | CM | 7 km | 6:05–6:15 | Z2 | Corrida moderada | | | | |
 ### Semana 7 (14–18/jun) — Carga
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
