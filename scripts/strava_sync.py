@@ -3,7 +3,7 @@ import requests
 import json
 import pandas as pd
 from datetime import datetime, timedelta
-from google import genai
+from openai import OpenAI
 import re
 
 # --- CONFIGURAÇÕES ---
@@ -67,11 +67,11 @@ def get_access_token():
         print(f"Erro ao processar JSON de autenticação: {e}")
         return None
 
-def analyze_with_gemini(planned, real):
-    """Usa o Gemini para gerar uma análise técnica do treino."""
-    client = genai.Client(
-        api_key=os.getenv("GEMINI_API_KEY"),
-        http_options={'api_version': 'v1'}
+def analyze_with_ai(planned, real):
+    """Usa o OpenRouter para gerar uma análise técnica do treino."""
+    client = OpenAI(
+        base_url="https://openrouter.ai/api/v1",
+        api_key=os.getenv("OPENROUTER_API_KEY"),
     )
     
     prompt = f"""
@@ -85,13 +85,13 @@ def analyze_with_gemini(planned, real):
     3. Foco em fatos e métricas, sem frases motivacionais genéricas.
     """
     try:
-        response = client.models.generate_content(
-            model='gemini-2.5-flash-lite',
-            contents=prompt
+        response = client.chat.completions.create(
+            model='openrouter/free',
+            messages=[{"role": "user", "content": prompt}]
         )
-        return response.text.strip()
+        return response.choices[0].message.content.strip()
     except Exception as e:
-        print(f"Erro Gemini: {e}")
+        print(f"Erro AI: {e}")
         return "Erro na análise da IA."
 
 def format_pace(seconds_per_km):
@@ -151,7 +151,7 @@ def sync():
                         planned_info = f"Distância: {cols[4]}, Pace Alvo: {cols[5]}, Tipo: {cols[3]}"
                         real_info = {"distance": stats['dist'], "pace": pace_real, "time": format_pace(stats['time'])}
                         
-                        avaliacao = analyze_with_gemini(planned_info, real_info)
+                        avaliacao = analyze_with_ai(planned_info, real_info)
                         
                         cols[8] = pace_real
                         cols[11] = avaliacao
