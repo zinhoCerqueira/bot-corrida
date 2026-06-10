@@ -183,8 +183,8 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 07/06 | Dom | LR | 13 km | 6:30–6:40 | Z1–Z2 | Corrida longa | | | | |
-| 09/06 | Ter | PROG | 8 km | 6:10 | Z2 | 3km Z2 → 2km Z3 → 2km Z3 forte → 1km Z2 | | | | |
+ | 07/06 | Dom | LR | 13 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 5:40 |  |  | Erro na análise da IA. | 
+ | 09/06 | Ter | PROG | 8 km | 6:10 | Z2 | 3km Z2 → 2km Z3 → 2km Z3 forte → 1km Z2 | 5:28 |  |  | Erro na análise da IA. | 
 | 11/06 | Qui | CM | 7 km | 6:05–6:15 | Z2 | Corrida moderada | | | | |
 ### Semana 7 (14–18/jun) — Carga
 
