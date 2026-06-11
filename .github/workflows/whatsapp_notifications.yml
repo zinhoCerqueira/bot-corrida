@@ -31,4 +31,5 @@ jobs:
         env:
           WHATSAPP_PHONE: ${{ secrets.WHATSAPP_PHONE }}
           WHATSAPP_API_KEY: ${{ secrets.WHATSAPP_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python scripts/whatsapp_notifier.py

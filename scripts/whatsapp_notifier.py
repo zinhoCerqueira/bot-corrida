@@ -3,13 +3,14 @@ import re
 import urllib.parse
 import requests
 from datetime import datetime, timedelta
-
+from openai import OpenAI
 import random
 
 # Configurações
 PLAN_PATH = "Plano_Treino_2026.md"
 WHATSAPP_PHONE = os.getenv("WHATSAPP_PHONE")
 WHATSAPP_API_KEY = os.getenv("WHATSAPP_API_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 GREETINGS = [
     "🏃‍♂️ *BORA ATLETA! Seu Treino de Hoje:*",
@@ -64,8 +65,35 @@ def get_training_for_date(target_date):
                     }
     return None
 
+def get_ai_coaching_tip(training):
+    """Usa o OpenRouter para gerar uma dica técnica curta para o treino."""
+    if not OPENROUTER_API_KEY:
+        return None
+    
+    client = OpenAI(
+        base_url="https://openrouter.ai/api/v1",
+        api_key=OPENROUTER_API_KEY,
+    )
+    
+    prompt = f"""
+    Como um treinador de corrida de elite, dê uma dica técnica e motivacional MUITO CURTA (máximo 25 palavras) para este treino:
+    TREINO: {training['tipo']} - {training['dist']}
+    DETALHES: {training['detalhes']}
+    
+    Foco em técnica, respiração ou mentalidade. Seja direto e inspirador.
+    """
+    try:
+        response = client.chat.completions.create(
+            model='openrouter/free',
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"Erro AI Notifier: {e}")
+        return None
+
 def format_message(training, date_obj, is_preview=False):
-    """Formata a mensagem no estilo Entusiasta & Visual com saudação aleatória."""
+    """Formata a mensagem no estilo Entusiasta & Visual com saudação aleatória e dica de IA."""
     date_str = date_obj.strftime("%d/%m (%A)")
     
     if not training or not training['tipo']:
@@ -78,6 +106,12 @@ def format_message(training, date_obj, is_preview=False):
     msg += f"⏱️ *Pace Alvo:* {training['pace']}\n"
     msg += f"💓 *Zona:* {training['zona']}\n"
     msg += f"📝 *Instruções:* {training['detalhes']}\n\n"
+    
+    # Busca dica da IA
+    ai_tip = get_ai_coaching_tip(training)
+    if ai_tip:
+        msg += f"🧠 *Dica do Treinador:* _{ai_tip}_\n\n"
+    
     msg += "Foco total na execução! 🚀🔥"
     return msg
 
