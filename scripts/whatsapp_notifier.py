@@ -66,21 +66,29 @@ def get_training_for_date(target_date):
     return None
 
 def get_ai_coaching_tip(training):
-    """Usa o OpenRouter para gerar uma dica técnica curta para o treino."""
+    """Usa o OpenRouter para gerar uma dica técnica personalizada baseada no tipo de treino."""
     if not OPENROUTER_API_KEY:
         return None
     
     client = OpenAI(
-        base_url="https://openrouter.ai/api/v1",
+        base_url="https://openrouter.ai/ai/v1",
         api_key=OPENROUTER_API_KEY,
     )
     
     prompt = f"""
-    Como um treinador de corrida de elite, dê uma dica técnica e motivacional MUITO CURTA (máximo 25 palavras) para este treino:
+    Como um treinador de corrida de elite, dê uma dica técnica e motivacional para o treino abaixo.
+    Identifique se é um treino de TIROS, LONGO, LEVE (CL), MODERADO (CM) ou PROGRESSIVO e adapte sua fala.
+    
+    Exemplo: "Hoje é um treino de tiros, então foque em manter a postura mesmo no cansaço..." 
+    ou "Hoje é um treino longo, então a paciência é sua maior aliada..."
+    
     TREINO: {training['tipo']} - {training['dist']}
     DETALHES: {training['detalhes']}
     
-    Foco em técnica, respiração ou mentalidade. Seja direto e inspirador.
+    Regras:
+    1. Máximo 30 palavras.
+    2. Comece mencionando o estilo do treino de forma natural.
+    3. Seja direto e inspirador.
     """
     try:
         response = client.chat.completions.create(
@@ -110,7 +118,7 @@ def format_message(training, date_obj, is_preview=False):
     # Busca dica da IA
     ai_tip = get_ai_coaching_tip(training)
     if ai_tip:
-        msg += f"🧠 *Dica do Treinador:* _{ai_tip}_\n\n"
+        msg += f"🧠 *Dica do Treinador:* {ai_tip}\n\n"
     
     msg += "Foco total na execução! 🚀🔥"
     return msg
@@ -146,7 +154,7 @@ def send_whatsapp(message):
 def main():
     # Ajuste de fuso horário para Brasil (UTC-3)
     # Como o GitHub Actions roda em UTC, subtraímos 3 horas
-    today = (datetime.utcnow() - timedelta(hours=3)) + timedelta(days=1)
+    today = datetime.utcnow() - timedelta(hours=3)
     training = get_training_for_date(today)
     
     message = format_message(training, today)
