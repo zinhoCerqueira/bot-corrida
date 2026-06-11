@@ -146,7 +146,7 @@ def send_whatsapp(message):
 def main():
     # Ajuste de fuso horário para Brasil (UTC-3)
     # Como o GitHub Actions roda em UTC, subtraímos 3 horas
-    today = datetime.utcnow() - timedelta(hours=3)
+    today = (datetime.utcnow() - timedelta(hours=3)) + timedelta(days=1)
     training = get_training_for_date(today)
     
     message = format_message(training, today)
