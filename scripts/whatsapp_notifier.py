@@ -110,7 +110,9 @@ def send_whatsapp(message):
         print(f"Erro ao enviar: {response.text}")
 
 def main():
-    today = datetime.now()
+    # Ajuste de fuso horário para Brasil (UTC-3)
+    # Como o GitHub Actions roda em UTC, subtraímos 3 horas
+    today = datetime.utcnow() - timedelta(hours=3)
     training = get_training_for_date(today)
     
     message = format_message(training, today)
