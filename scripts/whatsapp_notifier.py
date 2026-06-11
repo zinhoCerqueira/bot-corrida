@@ -71,7 +71,7 @@ def get_ai_coaching_tip(training):
         return None
     
     client = OpenAI(
-        base_url="https://openrouter.ai/ai/v1",
+        base_url="https://openrouter.ai/api/v1",
         api_key=OPENROUTER_API_KEY,
     )
     
