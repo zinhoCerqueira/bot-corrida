@@ -4,10 +4,23 @@ import urllib.parse
 import requests
 from datetime import datetime, timedelta
 
+import random
+
 # Configurações
 PLAN_PATH = "Plano_Treino_2026.md"
 WHATSAPP_PHONE = os.getenv("WHATSAPP_PHONE")
 WHATSAPP_API_KEY = os.getenv("WHATSAPP_API_KEY")
+
+GREETINGS = [
+    "🏃‍♂️ *BORA ATLETA! Seu Treino de Hoje:*",
+    "🔥 *PRA CIMA! Veja o que temos para hoje:*",
+    "👟 *AJUSTA O TÊNIS! O plano de hoje é:*",
+    "🎯 *FOCO NO OBJETIVO! Seu treino do dia:*",
+    "🌟 *MAIS UM DIA DE EVOLUÇÃO! Confira seu treino:*",
+    "🚀 *VAI QUE É TUA! O desafio de hoje:*",
+    "💪 *DISCIPLINA É TUDO! Hoje tem:*",
+    "⚡ *ENERGIA LÁ NO ALTO! Seu compromisso de hoje:*"
+]
 
 def clean_md(text):
     if not text: return ""
@@ -52,13 +65,14 @@ def get_training_for_date(target_date):
     return None
 
 def format_message(training, date_obj, is_preview=False):
-    """Formata a mensagem no estilo Entusiasta & Visual."""
+    """Formata a mensagem no estilo Entusiasta & Visual com saudação aleatória."""
     date_str = date_obj.strftime("%d/%m (%A)")
     
     if not training or not training['tipo']:
         return f"✨ *Descanso Merecido!* 🧘‍♂️\n\nHoje, {date_str}, não há treino planejado. Aproveite para recuperar as energias!"
 
-    msg = f"🏃‍♂️ *BORA ATLETA! Seu Treino de Hoje:* {date_str}\n\n"
+    greeting = random.choice(GREETINGS)
+    msg = f"{greeting} {date_str}\n\n"
     msg += f"📍 *{training['fase']}* | Semana {training['semana']}\n"
     msg += f"🎯 *{training['tipo']} - {training['dist']}*\n\n"
     msg += f"⏱️ *Pace Alvo:* {training['pace']}\n"
