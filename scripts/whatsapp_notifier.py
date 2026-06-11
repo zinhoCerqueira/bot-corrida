@@ -1,0 +1,111 @@
+import os
+import re
+import urllib.parse
+import requests
+from datetime import datetime, timedelta
+
+# Configurações
+PLAN_PATH = "Plano_Treino_2026.md"
+WHATSAPP_PHONE = os.getenv("WHATSAPP_PHONE")
+WHATSAPP_API_KEY = os.getenv("WHATSAPP_API_KEY")
+
+def clean_md(text):
+    if not text: return ""
+    return text.replace('**', '').replace('~', '').strip()
+
+def get_training_for_date(target_date):
+    """Busca os dados do treino no Markdown para uma data específica."""
+    with open(PLAN_PATH, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    current_fase, current_semana = "Desconhecida", "0"
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        # Detecta Fase
+        if '## FASE' in line.upper():
+            fase_match = re.search(r'## (FASE \d+ — .*?)(?:\n|$)', line)
+            if fase_match:
+                full = fase_match.group(1)
+                current_fase = full.split(' — ')[1].strip() if ' — ' in full else full
+        
+        # Detecta Semana
+        if '### Semana' in line:
+            semana_match = re.search(r'### Semana (\d+)', line)
+            if semana_match: current_semana = semana_match.group(1)
+
+        # Parser da tabela
+        if line.count('|') >= 9 and 'Data' not in line and '---' not in line:
+            parts = [clean_md(p) for p in line.strip().split('|')][1:-1]
+            if len(parts) >= 1:
+                data_val = parts[0]
+                if data_val == target_date.strftime("%d/%m"):
+                    return {
+                        "fase": current_fase,
+                        "semana": current_semana,
+                        "tipo": parts[2],
+                        "dist": parts[3],
+                        "pace": parts[4],
+                        "zona": parts[5],
+                        "detalhes": parts[6]
+                    }
+    return None
+
+def format_message(training, date_obj, is_preview=False):
+    """Formata a mensagem no estilo Entusiasta & Visual."""
+    date_str = date_obj.strftime("%d/%m (%A)")
+    
+    if not training or not training['tipo']:
+        return f"✨ *Descanso Merecido!* 🧘‍♂️\n\nHoje, {date_str}, não há treino planejado. Aproveite para recuperar as energias!"
+
+    msg = f"🏃‍♂️ *BORA ATLETA! Seu Treino de Hoje:* {date_str}\n\n"
+    msg += f"📍 *{training['fase']}* | Semana {training['semana']}\n"
+    msg += f"🎯 *{training['tipo']} - {training['dist']}*\n\n"
+    msg += f"⏱️ *Pace Alvo:* {training['pace']}\n"
+    msg += f"💓 *Zona:* {training['zona']}\n"
+    msg += f"📝 *Instruções:* {training['detalhes']}\n\n"
+    msg += "Foco total na execução! 🚀🔥"
+    return msg
+
+def get_weekly_preview(start_date):
+    """Gera um resumo dos próximos 3 treinos."""
+    preview = "\n\n📅 *Preview da Semana:*\n"
+    found = 0
+    for i in range(1, 8):
+        future_date = start_date + timedelta(days=i)
+        train = get_training_for_date(future_date)
+        if train and train['tipo']:
+            preview += f"• {future_date.strftime('%d/%m')}: {train['tipo']} ({train['dist']})\n"
+            found += 1
+            if found >= 3: break
+    return preview if found > 0 else ""
+
+def send_whatsapp(message):
+    """Envia a mensagem via CallMeBot."""
+    if not WHATSAPP_PHONE or not WHATSAPP_API_KEY:
+        print("Erro: Variáveis de ambiente WHATSAPP não configuradas.")
+        return
+
+    msg_encoded = urllib.parse.quote(message)
+    url = f"https://api.callmebot.com/whatsapp.php?phone={WHATSAPP_PHONE}&text={msg_encoded}&apikey={WHATSAPP_API_KEY}"
+    
+    response = requests.get(url)
+    if response.status_code == 200:
+        print("Mensagem enviada com sucesso!")
+    else:
+        print(f"Erro ao enviar: {response.text}")
+
+def main():
+    today = datetime.now()
+    training = get_training_for_date(today)
+    
+    message = format_message(training, today)
+    
+    # Adiciona preview se for segunda-feira
+    if today.weekday() == 0: # 0 = Segunda
+        message += get_weekly_preview(today)
+    
+    send_whatsapp(message)
+
+if __name__ == "__main__":
+    main()
