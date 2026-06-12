@@ -2,12 +2,12 @@ name: WhatsApp Training Notifications
 
 on:
   schedule:
-    # 04:00 BRT (Domingo) = 07:00 UTC
+    # 04:00 BRT (Domingo) = 07:00 UTC (Early enough)
     - cron: '0 7 * * 0'
-    # 09:00 BRT (Segunda - Pós Sync) = 12:00 UTC
-    - cron: '0 12 * * 1'
-    # 15:00 BRT (Terça e Quinta) = 18:00 UTC
-    - cron: '0 18 * * 2,4'
+    # 08:30 BRT (Segunda) = 11:30 UTC (Buffer for weekly sync)
+    - cron: '30 11 * * 1'
+    # 13:00 BRT (Terça e Quinta) = 16:00 UTC (2h buffer to arrive by 15:00)
+    - cron: '0 16 * * 2,4'
   workflow_dispatch: # Permite rodar manualmente para teste
 
 jobs:
