@@ -125,7 +125,7 @@ def format_message(training, date_obj, is_preview=False):
 
 def get_weekly_preview(start_date):
     """Gera um resumo dos próximos 3 treinos."""
-    preview = "\n\n📅 *Preview da Semana:*\n"
+    preview = "📅 *Preview da Semana:*\n"
     found = 0
     for i in range(1, 8):
         future_date = start_date + timedelta(days=i)
@@ -153,15 +153,19 @@ def send_whatsapp(message):
 
 def main():
     # Ajuste de fuso horário para Brasil (UTC-3)
-    # Como o GitHub Actions roda em UTC, subtraímos 3 horas
     today = datetime.utcnow() - timedelta(hours=3)
+    
+    # Lógica para Domingo à Noite (Apenas Preview)
+    if today.weekday() == 6 and today.hour >= 18:
+        preview = get_weekly_preview(today)
+        if preview:
+            message = f"📝 *PREPARA O CORAÇÃO!* 📝\nConfira o que vem por aí na sua semana de treinos:\n\n{preview}\nBons treinos e boa semana! 🚀"
+            send_whatsapp(message)
+        return
+
+    # Lógica normal para treinos do dia
     training = get_training_for_date(today)
-    
     message = format_message(training, today)
-    
-    # Adiciona preview se for segunda-feira
-    if today.weekday() == 0: # 0 = Segunda
-        message += get_weekly_preview(today)
     
     send_whatsapp(message)
 
