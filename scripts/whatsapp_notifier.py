@@ -100,6 +100,25 @@ def get_ai_coaching_tip(training):
         print(f"Erro AI Notifier: {e}")
         return None
 
+def get_previous_training_feedback():
+    """Busca a última avaliação (IA) preenchida no Markdown."""
+    with open(PLAN_PATH, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    lines = content.split('\n')
+    # Percorre de trás para frente para achar o último treino avaliado
+    for line in reversed(lines):
+        if line.count('|') >= 11:
+            parts = [clean_md(p) for p in line.strip().split('|')][1:-1]
+            # parts[10] é a coluna "Avaliação"
+            if len(parts) >= 11 and parts[10] and 'Avaliação' not in parts[10] and '---' not in parts[10]:
+                return {
+                    "data": parts[0],
+                    "tipo": parts[2],
+                    "aval": parts[10]
+                }
+    return None
+
 def format_message(training, date_obj, is_preview=False):
     """Formata a mensagem no estilo Entusiasta & Visual com saudação aleatória e dica de IA."""
     date_str = date_obj.strftime("%d/%m (%A)")
@@ -109,6 +128,13 @@ def format_message(training, date_obj, is_preview=False):
 
     greeting = random.choice(GREETINGS)
     msg = f"{greeting} {date_str}\n\n"
+    
+    # Feedback do treino anterior
+    prev_feedback = get_previous_training_feedback()
+    if prev_feedback:
+        msg += f"⏮️ *Último Treino ({prev_feedback['data']}):*\n_{prev_feedback['aval']}_\n\n"
+        msg += "---" * 3 + "\n\n"
+
     msg += f"📍 *{training['fase']}* | Semana {training['semana']}\n"
     msg += f"🎯 *{training['tipo']} - {training['dist']}*\n\n"
     msg += f"⏱️ *Pace Alvo:* {training['pace']}\n"
