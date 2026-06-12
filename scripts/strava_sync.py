@@ -142,7 +142,7 @@ def sync():
                     plan_date_str += "/2026"
                 plan_date = datetime.strptime(plan_date_str, "%d/%m/%Y")
                 
-                if abs((plan_date - act_date).days) <= TOLERANCE_DAYS:
+                if plan_date == act_date:
                     cols = [c.strip() for c in line.split("|")]
                     
                     if len(cols) > 11 and (not cols[8] or "Erro" in cols[11]):
@@ -170,3 +170,4 @@ def sync():
 
 if __name__ == "__main__":
     sync()
+   sync()
