@@ -2,12 +2,13 @@ name: WhatsApp Training Notifications
 
 on:
   schedule:
-    # 04:00 BRT (Domingo) = 07:00 UTC (Early enough)
-    - cron: '0 7 * * 0'
-    # 20:00 BRT (Domingo) = 23:00 UTC (Weekly preview)
-    - cron: '0 23 * * 0'
-    # 13:00 BRT (Terça e Quinta) = 16:00 UTC (2h buffer to arrive by 15:00)
-    - cron: '0 16 * * 2,4'
+    # Horários ajustados para minutos "quebrados" para evitar atrasos do GitHub (fila de espera)
+    # Domingo 03:37 BRT (Treino Longo)
+    - cron: '37 3 * * 0'
+    # Domingo 19:42 BRT (Weekly preview)
+    - cron: '42 19 * * 0'
+    # Terça e Quinta 12:23 BRT (Treinos da semana)
+    - cron: '23 12 * * 2,4'
   workflow_dispatch: # Permite rodar manualmente para teste
 
 jobs:
