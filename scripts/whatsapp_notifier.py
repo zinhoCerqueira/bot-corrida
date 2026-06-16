@@ -135,6 +135,7 @@ def format_message(training, date_obj, is_preview=False):
         msg += f"⏮️ *Último Treino ({prev_feedback['data']}):*\n_{prev_feedback['aval']}_\n\n"
         msg += "---" * 3 + "\n\n"
 
+    msg += "🏃 *TREINO DE HOJE:*\n"
     msg += f"📍 *{training['fase']}* | Semana {training['semana']}\n"
     msg += f"🎯 *{training['tipo']} - {training['dist']}*\n\n"
     msg += f"⏱️ *Pace Alvo:* {training['pace']}\n"
