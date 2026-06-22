@@ -191,7 +191,7 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
  | 14/06 | Dom | LR | 14 km | 6:30–6:40 | Z1–Z2 | Corrida longa | 5:52 |  |  | Superou o objetivo: 15,02 km corridos em 88:15 (5:52/km), bem acima do plano de 14 km em 6:30–6:40/km. Dados indicam esforço elevado acima do esperado, possivelmente acima do limiar de ventilação. Verificar fadiga residual e adaptação. | 
-| 16/06 | Ter | TM | ~9 km | 5:00–5:05 | Z4 | 2km aquec · 5×1km Z4 c/90s rec · 2km cool | | | | |
+ | 16/06 | Ter | TM | ~9 km | 5:00–5:05 | Z4 | 2km aquec · 5×1km Z4 c/90s rec · 2km cool | 5:59 |  |  | Execução abaixo do planejado. O pace médio (5:59) ficou quase 1 minuto mais lento que o alvo (5:00-5:05), indicando falha na intensidade de ritmo de maratona (TM). Você correu 1,84 km a mais, mas em ritmo de rodagem leve. | 
 | 18/06 | Qui | CL | 7 km | 6:40 | Z1 | Corrida leve | | | | |
 ### Semana 8 (21–25/jun) — ⚡ RECUPERAÇÃO
 
