@@ -65,7 +65,7 @@ def get_training_for_date(target_date):
                     }
     return None
 
-def get_ai_coaching_tip(training):
+def get_ai_coaching_tip(training, feedback_anterior=None):
     """Usa o OpenRouter para gerar uma dica técnica personalizada baseada no tipo de treino."""
     if not OPENROUTER_API_KEY:
         return None
@@ -75,20 +75,28 @@ def get_ai_coaching_tip(training):
         api_key=OPENROUTER_API_KEY,
     )
     
+    feedback_text = feedback_anterior["aval"] if feedback_anterior else "Nenhum feedback recente"
+    
     prompt = f"""
-    Como um treinador de corrida de elite, dê uma dica técnica e motivacional para o treino abaixo.
-    Identifique se é um treino de TIROS, LONGO, LEVE (CL), MODERADO (CM) ou PROGRESSIVO e adapte sua fala.
-    
-    Exemplo: "Hoje é um treino de tiros, então foque em manter a postura mesmo no cansaço..." 
-    ou "Hoje é um treino longo, então a paciência é sua maior aliada..."
-    
-    TREINO: {training['tipo']} - {training['dist']}
-    DETALHES: {training['detalhes']}
-    
+    Você é um treinador de corrida de elite. Dê uma dica técnica e focada para o treino de HOJE.
+
+    CONTEXTO DO ATLETA:
+    - Fase do plano: {training['fase']}
+    - Semana: {training['semana']}
+    - Treino de hoje: {training['tipo']} - {training['dist']}
+    - Instruções: {training['detalhes']}
+    - Último feedback: {feedback_text}
+
     Regras:
-    1. Máximo 30 palavras.
-    2. Comece mencionando o estilo do treino de forma natural.
-    3. Seja direto e inspirador.
+    1. Máximo 60 palavras.
+    2. A dica deve ser específica para o tipo de treino de hoje:
+       - LR: estratégia de ritmo, hidratação, percepção de esforço ao longo do tempo
+       - TIROS/TM/TC: postura, cadência, controle nas repetições
+       - CL/CM: relaxamento, zona de conforto, economia de movimento
+       - PROG: transição de ritmo, paciência no começo
+       - PROVA: pacing, estratégia de largada, mental
+    3. Se houver feedback do treino anterior, faça uma conexão breve (ex: "seguindo o que vimos no último treino...")
+    4. Seja direto e inspirador, mas com conteúdo técnico — nada de "você consegue" vazio.
     """
     try:
         response = client.chat.completions.create(
@@ -143,7 +151,7 @@ def format_message(training, date_obj, is_preview=False):
     msg += f"📝 *Instruções:* {training['detalhes']}\n\n"
     
     # Busca dica da IA
-    ai_tip = get_ai_coaching_tip(training)
+    ai_tip = get_ai_coaching_tip(training, prev_feedback)
     if ai_tip:
         msg += f"🧠 *Dica do Treinador:* {ai_tip}\n\n"
     

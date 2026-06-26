@@ -67,22 +67,32 @@ def get_access_token():
         print(f"Erro ao processar JSON de autenticação: {e}")
         return None
 
-def analyze_with_ai(planned, real):
-    """Usa o OpenRouter para gerar uma análise técnica do treino."""
+def analyze_with_ai(fase, tipo, planned, real):
+    """Usa o OpenRouter para gerar uma análise técnica do treino com contexto do plano."""
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
         api_key=os.getenv("OPENROUTER_API_KEY"),
     )
     
     prompt = f"""
-    Como um treinador de corrida de elite, analise este treino de forma realista e técnica:
+    Como um treinador de corrida de elite, analise objetivamente o treino abaixo.
+
+    FASE DO PLANO: {fase}
+    TIPO DE TREINO: {tipo}
     PLANEJADO: {planned}
-    REALIZADO: Distância: {real['distance']:.2f}km, Pace Médio: {real['pace']}, Tempo: {real['time']}
-    
+    REALIZADO: Distância: {real['distance']:.2f}km | Pace: {real['pace']} | Tempo: {real['time']}
+
     Regras:
-    1. Seja direto e realista (máximo 40 palavras).
-    2. Compare objetivamente o Pace Real vs Alvo e a Distância realizada.
-    3. Foco em fatos e métricas, sem frases motivacionais genéricas.
+    1. Máximo 60 palavras.
+    2. Compare o pace real vs alvo e a distância realizada.
+    3. Ajuste o tom conforme o tipo de treino:
+       - Longo (LR): avalie ritmo e consistência ao longo dos km
+       - Intervalado (TIROS/TM/TC): critique a execução dos estímulos e recuperação
+       - Leve (CL/CM): foque em fluência e controle de zona
+       - Progressivo (PROG): avalie a evolução do pace ao longo do treino
+       - Prova/Reteste: análise de performance e pacing
+    4. Se o treino está dentro do esperado, destaque os acertos. Se não, aponte o desvio com sugestão prática.
+    5. Seja técnico e específico — evite frases genéricas como "bom treino" ou "continue assim".
     """
     try:
         response = client.chat.completions.create(
@@ -128,37 +138,65 @@ def sync():
     with open(PLAN_PATH, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
+    # Parseia treinos do markdown com contexto de fase e semana
+    trainings = []
+    current_fase, current_semana = "", ""
+    
+    for i, line in enumerate(lines):
+        upper_line = line.upper()
+        if '## FASE' in upper_line:
+            fase_match = re.search(r'## (FASE \d+ — .*?)(?:\n|$)', line)
+            if fase_match:
+                full = fase_match.group(1)
+                current_fase = full.split(' — ')[1].strip() if ' — ' in full else full
+        if '### Semana' in line:
+            semana_match = re.search(r'### Semana (\d+)', line)
+            if semana_match:
+                current_semana = semana_match.group(1)
+        
+        match = re.search(r'\|\s*(\d{2}/\d{2}(?:/\d{4})?)\s*\|', line)
+        if match:
+            plan_date_str = match.group(1)
+            if len(plan_date_str) == 5:
+                plan_date_str += "/2026"
+            plan_date = datetime.strptime(plan_date_str, "%d/%m/%Y")
+            cols = [c.strip() for c in line.split("|")]
+            if len(cols) > 11:
+                trainings.append({
+                    "date": plan_date,
+                    "date_str": plan_date_str,
+                    "fase": current_fase,
+                    "semana": current_semana,
+                    "cols": cols,
+                    "line_idx": i,
+                    "needs_sync": not cols[8] or "Erro" in cols[11]
+                })
+
     updated = False
     for date_str, stats in daily_stats.items():
         act_date = datetime.strptime(date_str, "%Y-%m-%d")
         pace_real = format_pace(stats['time'] / stats['dist'])
         
-        # Procura a linha correspondente no MD com janela de tolerância
-        for i, line in enumerate(lines):
-            match = re.search(r'\|\s*(\d{2}/\d{2}(?:/\d{4})?)\s*\|', line)
-            if match:
-                plan_date_str = match.group(1)
-                if len(plan_date_str) == 5: # Formato DD/MM
-                    plan_date_str += "/2026"
-                plan_date = datetime.strptime(plan_date_str, "%d/%m/%Y")
+        for t in trainings:
+            if t["date"] == act_date and t["needs_sync"]:
+                print(f"Sincronizando treino de {date_str} (Semana {t['semana']} - {t['fase']})...")
                 
-                if plan_date == act_date:
-                    cols = [c.strip() for c in line.split("|")]
-                    
-                    if len(cols) > 11 and (not cols[8] or "Erro" in cols[11]):
-                        print(f"Sincronizando treino de {date_str} com plano de {plan_date_str}...")
-                        
-                        planned_info = f"Distância: {cols[4]}, Pace Alvo: {cols[5]}, Tipo: {cols[3]}"
-                        real_info = {"distance": stats['dist'], "pace": pace_real, "time": format_pace(stats['time'])}
-                        
-                        avaliacao = analyze_with_ai(planned_info, real_info)
-                        
-                        cols[8] = pace_real
-                        cols[11] = avaliacao
-                        
-                        lines[i] = " | ".join(cols) + "\n"
-                        updated = True
-                        break
+                planned_info = f"Distância: {t['cols'][4]}, Pace Alvo: {t['cols'][5]}, Tipo: {t['cols'][3]}"
+                real_info = {"distance": stats['dist'], "pace": pace_real, "time": format_pace(stats['time'])}
+                
+                avaliacao = analyze_with_ai(
+                    fase=t['fase'],
+                    tipo=t['cols'][3],
+                    planned=planned_info,
+                    real=real_info
+                )
+                
+                t['cols'][8] = pace_real
+                t['cols'][11] = avaliacao
+                
+                lines[t['line_idx']] = " | ".join(t['cols']) + "\n"
+                updated = True
+                break
 
     if updated:
         with open(PLAN_PATH, "w", encoding="utf-8") as f:
