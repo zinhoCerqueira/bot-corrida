@@ -199,7 +199,7 @@
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 21/06 | Dom | LR | 10 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | | | | |
 | 23/06 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
-| 25/06 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
+ | 25/06 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | 5:20 |  |  | The pace aligns with target, confirming efficiency. | 
 ---
 
 ## FASE 2 — DESENVOLVIMENTO
