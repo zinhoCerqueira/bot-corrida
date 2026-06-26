@@ -23,6 +23,17 @@ GREETINGS = [
     "⚡ *ENERGIA LÁ NO ALTO! Seu compromisso de hoje:*"
 ]
 
+CLOSINGS = [
+    "Bora colocar em prática! 💪🔥",
+    "Disciplina é o que separa o plano do resultado. 📈",
+    "Cada treino é um passo mais perto do objetivo. 🎯",
+    "Confie no processo e execute com qualidade. 🏃",
+    "Hoje é dia de construir sua melhor versão. ⚡",
+    "Treino feito, evolução garantida. 👟",
+    "A corrida não mente: o resultado vem com consistência. 📊",
+    "Seu futuro eu agradece por cada km de hoje. 🙌",
+]
+
 def clean_md(text):
     if not text: return ""
     return text.replace('**', '').replace('~', '').strip()
@@ -89,14 +100,15 @@ def get_ai_coaching_tip(training, feedback_anterior=None):
 
     Regras:
     1. Máximo 60 palavras.
-    2. A dica deve ser específica para o tipo de treino de hoje:
+    2. Responda apenas em português brasileiro.
+    3. A dica deve ser específica para o tipo de treino de hoje:
        - LR: estratégia de ritmo, hidratação, percepção de esforço ao longo do tempo
        - TIROS/TM/TC: postura, cadência, controle nas repetições
        - CL/CM: relaxamento, zona de conforto, economia de movimento
        - PROG: transição de ritmo, paciência no começo
        - PROVA: pacing, estratégia de largada, mental
-    3. Se houver feedback do treino anterior, faça uma conexão breve (ex: "seguindo o que vimos no último treino...")
-    4. Seja direto e inspirador, mas com conteúdo técnico — nada de "você consegue" vazio.
+    4. Se houver feedback do treino anterior, faça uma conexão breve (ex: "seguindo o que vimos no último treino...")
+    5. Seja direto e inspirador, mas com conteúdo técnico — nada de "você consegue" vazio.
     """
     try:
         response = client.chat.completions.create(
@@ -137,12 +149,12 @@ def format_message(training, date_obj, is_preview=False):
     greeting = random.choice(GREETINGS)
     msg = f"{greeting} {date_str}\n\n"
     
-    # Feedback do treino anterior
+    # Feedback do treino anterior primeiro
     prev_feedback = get_previous_training_feedback()
     if prev_feedback:
         msg += f"⏮️ *Último Treino ({prev_feedback['data']}):*\n_{prev_feedback['aval']}_\n\n"
-        msg += "---" * 3 + "\n\n"
 
+    # Depois o treino do dia
     msg += "🏃 *TREINO DE HOJE:*\n"
     msg += f"📍 *{training['fase']}* | Semana {training['semana']}\n"
     msg += f"🎯 *{training['tipo']} - {training['dist']}*\n\n"
@@ -150,12 +162,12 @@ def format_message(training, date_obj, is_preview=False):
     msg += f"💓 *Zona:* {training['zona']}\n"
     msg += f"📝 *Instruções:* {training['detalhes']}\n\n"
     
-    # Busca dica da IA
+    # Dica da IA
     ai_tip = get_ai_coaching_tip(training, prev_feedback)
     if ai_tip:
         msg += f"🧠 *Dica do Treinador:* {ai_tip}\n\n"
     
-    msg += "Foco total na execução! 🚀🔥"
+    msg += random.choice(CLOSINGS)
     return msg
 
 def get_weekly_preview(start_date):

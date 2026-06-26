@@ -84,15 +84,16 @@ def analyze_with_ai(fase, tipo, planned, real):
 
     Regras:
     1. Máximo 60 palavras.
-    2. Compare o pace real vs alvo e a distância realizada.
-    3. Ajuste o tom conforme o tipo de treino:
+    2. Responda apenas em português brasileiro.
+    3. Compare o pace real vs alvo e a distância realizada.
+    4. Ajuste o tom conforme o tipo de treino:
        - Longo (LR): avalie ritmo e consistência ao longo dos km
        - Intervalado (TIROS/TM/TC): critique a execução dos estímulos e recuperação
        - Leve (CL/CM): foque em fluência e controle de zona
        - Progressivo (PROG): avalie a evolução do pace ao longo do treino
        - Prova/Reteste: análise de performance e pacing
-    4. Se o treino está dentro do esperado, destaque os acertos. Se não, aponte o desvio com sugestão prática.
-    5. Seja técnico e específico — evite frases genéricas como "bom treino" ou "continue assim".
+    5. Se o treino está dentro do esperado, destaque os acertos. Se não, aponte o desvio com sugestão prática.
+    6. Seja técnico e específico — evite frases genéricas como "bom treino" ou "continue assim".
     """
     try:
         response = client.chat.completions.create(
