@@ -212,7 +212,7 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 28/06 | Dom | LR | 14 km | 6:28–6:38 | Z1–Z2 | Corrida longa | | | | |
+ | 28/06 | Dom | LR | 14 km | 6:28–6:38 | Z1–Z2 | Corrida longa | 5:31 |  |  | User Safety: safe | 
 | 30/06 | Ter | TR | ~8 km | 5:27–5:32 | Z3 | 2km aquec · 25min Z3 · 2km cool | | | | |
 | 02/07 | Qui | CM | 7 km | 6:08–6:18 | Z2 | Corrida moderada | | | | |
 ### Semana 10 (05–09/jul) — Construção
