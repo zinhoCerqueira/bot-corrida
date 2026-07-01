@@ -198,7 +198,7 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 21/06 | Dom | LR | 10 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | | | | |
-| 23/06 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
+| 23/06 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | 5:32 | | Distância real de 6,39 km. | Volume 28% acima do planejado e ritmo significativamente mais forte (5:32 vs 6:40-6:50), saindo da zona Z1 de recuperação ativa. Excelente capacidade cardiovascular, mas cuidado com o excesso de intensidade em semanas de recuperação para evitar fadiga acumulada. |
 | 25/06 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
 ---
 
