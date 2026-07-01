@@ -40,7 +40,7 @@ def get_strava_activities(access_token, start_dt):
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200:
         print(f"Erro Strava: {response.json()}")
-        return []
+        return None
     
     # Filtra apenas corridas
     return [a for a in response.json() if a['type'] == 'Run']
@@ -121,6 +121,10 @@ def sync():
     
     activities = get_strava_activities(access_token, start_dt)
     
+    if activities is None:
+        print("Erro ao obter atividades do Strava. O timestamp de sincronismo não será atualizado.")
+        return
+
     if not activities:
         print("Nenhuma atividade nova encontrada no Strava.")
         save_start_date(datetime.now())
