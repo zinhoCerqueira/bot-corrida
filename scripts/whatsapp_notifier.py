@@ -120,23 +120,44 @@ def get_ai_coaching_tip(training, feedback_anterior=None):
         print(f"Erro AI Notifier: {e}")
         return None
 
-def get_previous_training_feedback():
-    """Busca a última avaliação (IA) preenchida no Markdown."""
+def get_previous_training_feedback(target_date):
+    """Busca o treino imediatamente anterior ao target_date no Markdown e retorna sua avaliação, se existir."""
     with open(PLAN_PATH, 'r', encoding='utf-8') as f:
         content = f.read()
     
     lines = content.split('\n')
-    # Percorre de trás para frente para achar o último treino avaliado
-    for line in reversed(lines):
-        if line.count('|') >= 11:
+    trainings = []
+    
+    for line in lines:
+        if line.count('|') >= 11 and 'Data' not in line and '---' not in line:
             parts = [clean_md(p) for p in line.strip().split('|')][1:-1]
-            # parts[10] é a coluna "Avaliação"
-            if len(parts) >= 11 and parts[10] and 'Avaliação' not in parts[10] and '---' not in parts[10]:
-                return {
-                    "data": parts[0],
-                    "tipo": parts[2],
-                    "aval": parts[10]
-                }
+            if len(parts) >= 11:
+                plan_date_str = parts[0]
+                if len(plan_date_str) == 5:
+                    plan_date_str += "/2026"
+                try:
+                    plan_date = datetime.strptime(plan_date_str, "%d/%m/%Y")
+                    trainings.append({
+                        "date": plan_date,
+                        "data_str": parts[0],
+                        "tipo": parts[2],
+                        "aval": parts[10]
+                    })
+                except ValueError:
+                    continue
+
+    # Filtra treinos que aconteceram antes do target_date
+    past_trainings = [t for t in trainings if t["date"] < target_date]
+    if past_trainings:
+        # Pega o treino imediatamente anterior
+        last_train = max(past_trainings, key=lambda x: x["date"])
+        # Retorna apenas se tiver avaliação preenchida
+        if last_train["aval"]:
+            return {
+                "data": last_train["data_str"],
+                "tipo": last_train["tipo"],
+                "aval": last_train["aval"]
+            }
     return None
 
 def format_message(training, date_obj, is_preview=False):
@@ -150,7 +171,7 @@ def format_message(training, date_obj, is_preview=False):
     msg = f"{greeting} {date_str}\n\n"
     
     # Feedback do treino anterior primeiro
-    prev_feedback = get_previous_training_feedback()
+    prev_feedback = get_previous_training_feedback(date_obj)
     if prev_feedback:
         msg += f"⏮️ *Último Treino ({prev_feedback['data']}):*\n_{prev_feedback['aval']}_\n\n"
 

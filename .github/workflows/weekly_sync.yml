@@ -1,9 +1,9 @@
 name: Weekly Training Sync
 
 on:
-  schedule:
-    # Executa toda segunda-feira às 04:00 AM UTC (01:00 AM BRT)
-    - cron: '0 4 * * 1'
+#  schedule:
+#    # Executa toda segunda-feira às 04:00 AM UTC (01:00 AM BRT)
+#    - cron: '0 4 * * 1'
   workflow_dispatch:
     # Permite rodar manualmente pelo botão "Run workflow" no GitHub Actions
 
