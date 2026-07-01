@@ -200,7 +200,7 @@ def send_whatsapp(message):
 
 def main():
     # Ajuste de fuso horário para Brasil (UTC-3)
-    today = datetime(2026, 6, 28, 6, 0, 0)  # TESTE: domingo 06:00 BRT forçado
+    today = datetime.utcnow() - timedelta(hours=3)
     
     # Lógica para Domingo à Noite (Apenas Preview)
     if today.weekday() == 6 and today.hour >= 18:
