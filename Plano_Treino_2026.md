@@ -199,7 +199,7 @@
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 21/06 | Dom | LR | 10 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | | | | |
 | 23/06 | Ter | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | 5:32 | | Distância real de 6,39 km. | Volume 28% acima do planejado e ritmo significativamente mais forte (5:32 vs 6:40-6:50), saindo da zona Z1 de recuperação ativa. Excelente capacidade cardiovascular, mas cuidado com o excesso de intensidade em semanas de recuperação para evitar fadiga acumulada. |
-| 25/06 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
+| 25/06 | Qui | CL | 5 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | 5:21 | | Distância real de 5,72 km. | Pace de 5:21/km muito superior ao planejado para Z1 (6:40-6:50/km) e distância 14% maior. Apesar da boa resposta mecânica, o treino deixou de ser regenerativo. Mantenha o foco em correr leve nos dias de recuperação para preservar a musculatura e o sistema cardiovascular. |
 ---
 
 ## FASE 2 — DESENVOLVIMENTO
