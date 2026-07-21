@@ -214,7 +214,7 @@
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 28/06 | Dom | LR | 14 km | 6:28–6:38 | Z1–Z2 | Corrida longa | 5:31 | | Distância real de 11,13 km. | Pace de 5:31/km significativamente mais forte que a meta de 6:28-6:38/km (Z1-Z2), porém com redução de 20% no volume planejado (11,13km vs 14km). O treino longo exige priorizar o volume e controle de ritmo. Evite compensar a distância com velocidade para não comprometer a resistência de base. |
 | 30/06 | Ter | TR | ~8 km | 5:27–5:32 | Z3 | 2km aquec · 25min Z3 · 2km cool | 07:00 | | Treino feito na esteira da academia devido ao clima. Tempo total de ~56 min. | Distância total atingida (8km), porém ritmo médio de 7:00/km ficou muito abaixo do alvo de TR em Z3 (5:27-5:32/km). Adaptações na esteira podem influenciar o ritmo, mas o foco do Tempo Run é sustentar a intensidade no limiar. Bom esforço de consistência sob clima adverso. |
-| 02/07 | Qui | CM | 7 km | 6:08–6:18 | Z2 | Corrida moderada | 5:39 | | | |
+| 02/07 | Qui | CM | 7 km | 6:08–6:18 | Z2 | Corrida moderada | 5:39 | | | Pace 29s/km acima do teto da Z2, já dentro do limiar Z3. Distância cumprida. Ritmo consistente e controlado, indicando que o condicionamento aeróbio já suporta intensidades maiores que as previstas para CM. |
 ### Semana 10 (05–09/jul) — Construção
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
