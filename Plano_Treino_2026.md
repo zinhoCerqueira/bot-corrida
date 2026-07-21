@@ -219,21 +219,21 @@
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 05/07 | Dom | LR | 15 km | 6:28 | Z1–Z2 | Corrida longa | | | | |
-| 07/07 | Ter | TM | ~9 km | 5:00–5:05 | Z4 | 2km aquec · 5×1km Z4 c/90s rec · 2km cool | | | | |
-| 09/07 | Qui | CM | 8 km | 6:05–6:15 | Z2 | Corrida moderada | | | | |
+| 05/07 | Dom | LR | 15 km | 6:28 | Z1–Z2 | Corrida longa | 5:45 | | | Pace 43s/km mais rápido que o alvo, dentro do limiar Z3. Volume ligeiramente acima (15,11 km). Ritmo forte e consistente, mas desvia do objetivo aeróbio da LR — risco de acumular fadiga excessiva para uma corrida longa de base. |
+| 07/07 | Ter | TM | ~9 km | 5:00–5:05 | Z4 | 2km aquec · 5×1km Z4 c/90s rec · 2km cool | 5:14 | | | Pace médio 5:14 considerando apenas os segmentos corridos (descansos pausados). 9s/km acima do alvo Z4 (5:00-5:05). Volume cumprido (9,1 km). Os tiros ficaram ligeiramente abaixo da intensidade-alvo — tente sustentar o pace de 5:05 nos próximos TM para extrair o ganho de VO2máx da fase. |
+| 09/07 | Qui | CM | 8 km | 6:05–6:15 | Z2 | Corrida moderada | 8:06 | | | Ritmo muito abaixo do alvo — ~2min/km mais lento que o piso da Z2, e fora até da Z1 de recuperação. Volume 6% abaixo (7,54 km). Pode indicar fadiga acumulada, calor ou dia off. Importante identificar a causa: se for cansaço geral, considere ajustar a carga da semana seguinte. |
 ### Semana 11 (12–16/jul) — Carga
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 12/07 | Dom | LR | 16 km | 6:25–6:35 | Z1–Z2 | Corrida longa | | | | |
-| 14/07 | Ter | TR | ~9 km | 5:27–5:32 | Z3 | 2km aquec · 30min Z3 · 2km cool | | | | |
-| 16/07 | Qui | CL+S | 7 km | 6:40 | Z1 | 6km Z1 · 4×20s aceleração | | | | |
+| 12/07 | Dom | LR | 16 km | 6:25–6:35 | Z1–Z2 | Corrida longa | 5:45 | | | Pace 40s/km mais rápido que o alvo, dentro do Z3, mas volume 19% abaixo (13 km vs 16 km). A LR exige priorizar o tempo de estímulo aeróbio — correr mais devagar por mais distância trará mais benefício para a resistência do que reduzir quilometragem para aumentar intensidade. |
+| 14/07 | Ter | TR | ~9 km | 5:27–5:32 | Z3 | 2km aquec · 30min Z3 · 2km cool | FALTOU | | | |
+| 16/07 | Qui | CL+S | 7 km | 6:40 | Z1 | 6km Z1 · 4×20s aceleração | 5:19 | | | Pace 1min21s/km mais rápido que o alvo Z1, atingindo intensidade de Z4. Volume 1 km abaixo do planejado (6 km). O CL+S deve ser majoritariamente leve com acelerações curtas no final — o ritmo médio indica que não houve separação entre parte leve e strides. |
 ### Semana 12 (19–23/jul) — ⚡ RECUPERAÇÃO
 
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
-| 19/07 | Dom | LR | 12 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | | | | |
+| 19/07 | Dom | LR | 12 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | 5:41 | | | Volume ok (12,07 km), mas pace ~1min/km mais rápido que o alvo de recuperação, dentro do Z3. Semana ⚡ exige intensidade baixa para permitir regeneração — este ritmo anula o efeito recuperativo e pode acumular fadiga para as semanas de carga seguintes. |
 | 21/07 | Ter | CL | 6 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
 | 23/07 | Qui | CL | 6 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
 ---
