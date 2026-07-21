@@ -234,7 +234,7 @@
 | Data | Dia | Treino | Distância | Pace Alvo | Zona | Detalhes | Pace Real | Percepção | Comentários | Avaliação |
 |------|-----|--------|-----------|-----------|------|----------|-----------|------------|-------------|-----------|
 | 19/07 | Dom | LR | 12 km | 6:40–6:50 | Z1 | LR — semana leve ⚡ | 5:41 | | | Volume ok (12,07 km), mas pace ~1min/km mais rápido que o alvo de recuperação, dentro do Z3. Semana ⚡ exige intensidade baixa para permitir regeneração — este ritmo anula o efeito recuperativo e pode acumular fadiga para as semanas de carga seguintes. |
-| 21/07 | Ter | CL | 6 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
+| 21/07 | Ter | CL | 6,17 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | 5:34 | 6 | Treino tranquilo, percepção 6/10. | Ritmo (5:34) muito acima do alvo Z1 (6:40-6:50) e dentro do Z3, comprometendo o efeito regenerativo da semana ⚡. O baixo esforço percebido (6/10) indica boa capacidade cardiovascular, mas em semanas de recuperação o foco deve ser correr leve para dissipar a fadiga acumulada. |
 | 23/07 | Qui | CL | 6 km | 6:40–6:50 | Z1 | Leve — recuperação ⚡ | | | | |
 ---
 
